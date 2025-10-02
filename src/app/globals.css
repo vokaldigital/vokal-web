@@ -1,26 +1,115 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@import "tw-animate-css";
+
+/* ---- Vokal tokens ---- */
+:root{
+  --vokal-base:#0b0f0f; --vokal-base2:#0e1716;
+  --vokal-text:#fff; --vokal-muted:rgba(255,255,255,.68);
+  --vokal-mint:#a7e3c9; --vokal-border:rgba(255,255,255,.14);
+  --radius-pill:999px;
+  --radius:0.625rem;
+
+  /* shadcn-style vars (kept) */
+  --background:oklch(1 0 0);
+  --foreground:oklch(0.145 0 0);
+  --card:oklch(1 0 0);
+  --card-foreground:oklch(0.145 0 0);
+  --popover:oklch(1 0 0);
+  --popover-foreground:oklch(0.145 0 0);
+  --primary:oklch(0.205 0 0);
+  --primary-foreground:oklch(0.985 0 0);
+  --secondary:oklch(0.97 0 0);
+  --secondary-foreground:oklch(0.205 0 0);
+  --muted:oklch(0.97 0 0);
+  --muted-foreground:oklch(0.556 0 0);
+  --accent:oklch(0.97 0 0);
+  --accent-foreground:oklch(0.205 0 0);
+  --destructive:oklch(0.577 0.245 27.325);
+  --border:oklch(0.922 0 0);
+  --input:oklch(0.922 0 0);
+  --ring:oklch(0.708 0 0);
+  --chart-1:oklch(0.646 0.222 41.116);
+  --chart-2:oklch(0.6 0.118 184.704);
+  --chart-3:oklch(0.398 0.07 227.392);
+  --chart-4:oklch(0.828 0.189 84.429);
+  --chart-5:oklch(0.769 0.188 70.08);
+  --sidebar:oklch(0.985 0 0);
+  --sidebar-foreground:oklch(0.145 0 0);
+  --sidebar-primary:oklch(0.205 0 0);
+  --sidebar-primary-foreground:oklch(0.985 0 0);
+  --sidebar-accent:oklch(0.97 0 0);
+  --sidebar-accent-foreground:oklch(0.205 0 0);
+  --sidebar-border:oklch(0.922 0 0);
+  --sidebar-ring:oklch(0.708 0 0);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html,body{height:100%;background:var(--vokal-base);color:var(--vokal-text);}
+body{font-family:ui-sans-serif,system-ui;-webkit-font-smoothing:antialiased}
+
+/* vignette */
+html::before{
+  content:"";position:fixed;inset:-40vh -40vw;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(70vw 60vh at 22% 16%, rgba(255,255,255,.06), transparent 60%),
+    radial-gradient(90vw 70vh at 78% 84%, rgba(255,255,255,.05), transparent 65%),
+    linear-gradient(180deg, var(--vokal-base2) 0%, var(--vokal-base) 70%);
+}
+/* plus grid */
+html::after{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><g stroke='%23ffffff' stroke-opacity='0.06' stroke-width='1.3' stroke-linecap='round'><line x1='120' y1='104' x2='120' y2='136'/><line x1='104' y1='120' x2='136' y2='120'/></g></svg>");
+  background-repeat:repeat;background-size:240px 240px;background-position:0 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* pills */
+.btn-outline{
+  border:1px solid rgba(255,255,255,.62); border-radius:999px;
+  color:#fff; padding:8px 16px;
+  transition:background-color .25s, color .25s, border-color .25s, box-shadow .4s, transform .2s;
+}
+.btn-outline:hover{
+  color:#a7e3c9; border-color:#a7e3c9;
+  box-shadow:0 0 6px #a7e3c9, 0 0 16px rgba(167,227,201,.5);
+  transform:translateY(-1px);
+}
+.btn-filled{
+  border:1px solid rgba(255,255,255,.55); border-radius:999px;
+  background:rgba(242,242,242,.65); color:#0b0f0f; padding:8px 16px;
+  backdrop-filter:blur(6px);
+  transition:background-color .25s, color .25s, border-color .25s, box-shadow .4s, transform .2s;
+}
+.btn-filled:hover{
+  background:rgba(167,227,201,.65); border-color:#a7e3c9; color:#f2f2f2;
+  box-shadow:0 0 12px #a7e3c9, 0 0 28px rgba(167,227,201,.55);
+  transform:translateY(-1px);
+}
+
+/* dark theme overrides (keep) */
+.dark { /* ...your vars as-is... */ }
+
+/* single base layer (no duplicates) */
+@layer base {
+  *, ::before, ::after {
+    border-color: oklch(var(--border));
+    outline-color: color-mix(in oklch, oklch(var(--ring)) 50%, transparent);
+  }
+  body {
+    background-color: oklch(var(--background));
+    color: oklch(var(--foreground));
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* push the vignette/grid behind all content */
+html::before,
+html::after{
+  z-index:-1; /* was 0 */
+}
+
+/* make nav always paint above */
+header, nav, .btn-outline, .btn-filled{
+  position:relative;
+  z-index:1;
 }
