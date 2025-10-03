@@ -5,9 +5,7 @@ export default function Nav() {
   return (
     <header className="flex items-center justify-between px-8 py-4">
       {/* Brand → home */}
-      <Link href="/" className="text-xl font-bold text-white">
-        vokal
-      </Link>
+<div className="brand"><Link href="/">vokal</Link></div>
 
       {/* Links */}
       <nav className="flex gap-4">
