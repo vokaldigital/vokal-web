@@ -170,3 +170,18 @@ header, nav, .btn-outline, .btn-filled{
 /* Brand link not purple/underlined */
 header .brand a{ color:#fff; text-decoration:none; }
 header .brand a:hover{ opacity:.85; }
+
+/* globals.css — put near the end */
+
+/* push vignette + grid behind everything */
+html::before,
+html::after { z-index: -1; }
+
+/* ensure content paints above */
+body, main, header, nav { position: relative; z-index: 1; }
+
+/* header always above background */
+header { z-index: 10; }
+
+/* hero has no own background */
+.hero { background: transparent; }
