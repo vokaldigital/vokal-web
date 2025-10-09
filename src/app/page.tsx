@@ -115,50 +115,30 @@ export default function Home() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            {helpSteps.map((step, index) => {
-              const isFeatureCard = index === 1;
-              return (
-                <article
-                  key={step.title}
-                  className={`group relative flex min-h-[260px] flex-col justify-between overflow-hidden rounded-3xl border p-8 transition-shadow ${
-                    isFeatureCard
-                      ? "border-gray-900 bg-gray-900 text-white shadow-xl"
-                      : "border-gray-200 bg-white text-gray-900 shadow-sm hover:shadow-md"
-                  }`}
-                >
-                  <div className="space-y-4">
-                    <span
-                      className={`text-xs font-medium uppercase tracking-wide ${
-                        isFeatureCard ? "text-white/70" : "text-gray-500"
-                      }`}
-                    >
-                      Step {index + 1}
-                    </span>
-                    <h3 className="text-2xl font-semibold leading-tight">{step.title}</h3>
-                    <p
-                      className={`text-sm ${
-                        isFeatureCard ? "text-white/80" : "text-gray-600"
-                      }`}
-                    >
-                      {step.description}
-                    </p>
-                  </div>
-                  <span
-                    aria-hidden
-                    className={`mt-10 inline-flex h-10 w-10 items-center justify-center rounded-full border text-base transition-transform group-hover:translate-x-1 ${
-                      isFeatureCard
-                        ? "border-white/40 bg-white/10 text-white"
-                        : "border-gray-300 text-gray-900"
-                    }`}
-                  >
-                    →
+            {helpSteps.map((step, index) => (
+              <article
+                key={step.title}
+                className="group relative flex min-h-[260px] flex-col justify-between overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 text-gray-900 shadow-sm transition-transform transition-colors transition-shadow hover:-translate-y-1 hover:border-gray-900 hover:bg-gray-900 hover:text-white hover:shadow-xl"
+              >
+                <div className="space-y-4">
+                  <span className="text-xs font-medium uppercase tracking-wide text-gray-500 transition-colors group-hover:text-white/70">
+                    Step {index + 1}
                   </span>
-                  {isFeatureCard && (
-                    <span className="pointer-events-none absolute -bottom-16 -right-14 h-52 w-52 rounded-full bg-white/10 blur-3xl" />
-                  )}
-                </article>
-              );
-            })}
+                  <h3 className="text-2xl font-semibold leading-tight transition-colors group-hover:text-white">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 transition-colors group-hover:text-white/80">
+                    {step.description}
+                  </p>
+                </div>
+                <span
+                  aria-hidden
+                  className="mt-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-base text-gray-900 transition-colors transition-transform group-hover:border-white/60 group-hover:bg-white/10 group-hover:text-white group-hover:translate-x-1"
+                >
+                  →
+                </span>
+              </article>
+            ))}
           </div>
         </div>
       </section>
