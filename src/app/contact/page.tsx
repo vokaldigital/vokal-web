@@ -1,3 +1,5 @@
+import { AnimatedNeonText } from "@/components/AnimatedNeonText";
+
 export default function Page() {
   return (
     <main className="min-h-dvh">
@@ -65,9 +67,9 @@ export default function Page() {
 
           <button
             type="submit"
-            className="inline-flex justify-center rounded-full bg-gray-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-black"
+            className="group inline-flex items-center justify-center rounded-2xl bg-black/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-black/20 focus-visible:bg-black/20 focus-visible:outline-none"
           >
-            Send message
+            <AnimatedNeonText text="Send message" className="gap-[0.06em]" />
           </button>
         </form>
       </section>

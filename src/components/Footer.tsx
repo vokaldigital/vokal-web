@@ -1,11 +1,12 @@
 import Image from "next/image";
+import { AnimatedNeonText } from "@/components/AnimatedNeonText";
 
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-white">
+    <footer>
       <div className="mx-auto max-w-6xl px-4 py-12">
-        <div className="grid gap-10 sm:grid-cols-[minmax(0,1fr)_minmax(0,360px)] sm:items-stretch">
+        <div className="grid gap-10 bg-transparent sm:grid-cols-[minmax(0,1fr)_minmax(0,360px)] sm:items-stretch">
           {/* Left: brand and navigation */}
           <div className="flex h-full flex-col gap-6 text-sm text-gray-700">
             <div className="space-y-3">
@@ -18,9 +19,12 @@ export default function Footer() {
           </div>
 
           {/* Right: call-to-action panel */}
-          <form action="/contact" className="w-full rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-            <p className="text-xs font-medium uppercase tracking-wide text-gray-500">Work with us</p>
-            <p className="mt-3 text-lg font-semibold text-gray-900">
+          <form
+            action="/contact"
+            className="w-full rounded-2xl border border-[#1C1D1B]/15 bg-transparent p-6"
+          >
+            <p className="text-xs font-medium uppercase tracking-wide text-gray-600">Work with us</p>
+            <p className="mt-3 text-lg font-semibold text-[#1C1D1B]">
               Start with a free, thirty minute growth mapping call.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -35,14 +39,14 @@ export default function Footer() {
                 aria-label="Your email"
                 autoComplete="email"
                 required
-                className="h-11 w-full flex-1 rounded-full border border-gray-300 bg-white px-4 text-sm text-gray-900 placeholder-gray-400 shadow focus:border-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900/10"
+                className="h-11 w-full flex-1 rounded-full border border-[#1C1D1B]/15 bg-transparent px-4 text-sm text-[#1C1D1B] placeholder-gray-400 focus:border-[#1C1D1B] focus:outline-none focus:ring-2 focus:ring-[#1C1D1B]/10"
               />
               <button
                 type="submit"
-                className="inline-flex h-11 w-full items-center justify-center gap-3 rounded-full border border-gray-900 bg-gray-900 px-4 text-sm font-medium text-white transition-colors hover:bg-black sm:w-auto"
+                className="group inline-flex h-11 w-full items-center justify-center gap-3 rounded-2xl border border-[#1C1D1B]/20 bg-transparent px-4 text-sm font-medium text-[#1C1D1B] transition-colors hover:border-[#B4FF00] focus-visible:outline-none sm:w-auto"
               >
-                Let’s talk
-                <span aria-hidden className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white text-gray-900">
+                <AnimatedNeonText text="Let’s talk" className="gap-[0.06em]" />
+                <span aria-hidden className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white text-[#1C1D1B] transition-colors group-hover:bg-[#B4FF00] group-hover:text-[#1C1D1B] group-focus-visible:bg-[#B4FF00] group-focus-visible:text-[#1C1D1B]">
                   →
                 </span>
               </button>

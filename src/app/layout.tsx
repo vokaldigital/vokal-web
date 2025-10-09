@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-dvh bg-white text-gray-900 antialiased">
+      <body className="min-h-dvh bg-[url('/website-background.png?v=1')] bg-[length:clamp(768px,100vw,100vw)_auto] bg-top bg-no-repeat text-gray-900 antialiased">
         <Nav />
         <div className="pt-20">{children}</div>
         <Footer />

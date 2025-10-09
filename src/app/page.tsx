@@ -1,34 +1,18 @@
 import Link from "next/link";
+import { AnimatedNeonText } from "@/components/AnimatedNeonText";
 
 export default function Home() {
   return (
     <main className="min-h-dvh">
-      <section className="min-h-[80svh] grid place-items-center px-6 pb-24 pt-12 md:pb-32">
+      <section className="min-h-[80svh] grid place-items-center px-6 pb-24 pt-12 text-[#1C1D1B] md:pb-32">
         <div className="w-full max-w-3xl space-y-4 text-left">
-          <h1 className="text-3xl font-medium sm:text-4xl">Get loud with Vokal.</h1>
-          <p className="text-gray-600">You’re looking at a fresh start.</p>
-          <form className="flex max-w-md items-center gap-2" action="/contact">
-            <input
-              type="email"
-              name="email"
-              placeholder="Your email"
-              aria-label="Your email"
-              required
-              autoComplete="email"
-              className="h-11 w-full flex-1 rounded-md bg-white px-3 text-gray-900 placeholder-gray-400 shadow focus:outline-none focus:ring-2 focus:ring-gray-900/10"
-            />
-            <button
-              type="submit"
-              className="h-11 rounded-md bg-gray-900 px-4 text-white transition-colors hover:bg-black"
-            >
-              Submit
-            </button>
-          </form>
+          <h1 className="text-3xl font-medium text-[#1C1D1B] sm:text-4xl">Get Loud.</h1>
+          <p className="text-[#1C1D1B]/80">Your brand. Amplified by AI.</p>
         </div>
       </section>
 
       {/* Services segment */}
-      <section aria-labelledby="services-heading" className="w-full bg-white text-black">
+      <section aria-labelledby="services-heading" className="w-full text-[#1C1D1B]">
         <div className="mx-auto max-w-6xl px-4 py-24 md:py-28 space-y-10">
           <div className="text-center space-y-4">
             <span className="inline-flex items-center rounded-full border px-4 py-1 text-xs font-medium uppercase tracking-wide text-gray-700">
@@ -59,7 +43,7 @@ export default function Home() {
       </section>
 
       {/* Free call CTA */}
-      <section aria-labelledby="call-heading" className="w-full bg-white text-black">
+      <section aria-labelledby="call-heading" className="w-full text-[#1C1D1B]">
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 text-center space-y-6">
           <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-xs font-medium uppercase tracking-wide">
             Free Call
@@ -72,9 +56,9 @@ export default function Home() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center rounded-full bg-gray-900 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-black"
+            className="group inline-flex items-center justify-center rounded-2xl bg-black/30 px-6 py-3 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-black/40 focus-visible:bg-black/40 focus-visible:outline-none"
           >
-            Schedule your free call
+            <AnimatedNeonText text="Schedule your free call" className="gap-[0.08em]" />
           </Link>
         </div>
       </section>
@@ -83,7 +67,7 @@ export default function Home() {
       <div aria-hidden className="h-14 md:h-20" />
 
       {/* How we help — productized spread */}
-      <section aria-labelledby="help-heading" className="w-full bg-white text-black">
+      <section aria-labelledby="help-heading" className="w-full text-[#1C1D1B]">
         <div className="mx-auto max-w-6xl px-4 py-24 md:py-28 space-y-12">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
             <div className="space-y-5">
@@ -102,7 +86,7 @@ export default function Home() {
             </div>
 
             <div className="flex items-center gap-3 text-sm text-gray-500">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-base">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-base text-[#1C1D1B]">
                 ←
               </span>
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-900 bg-gray-900 text-base text-white">
@@ -118,7 +102,7 @@ export default function Home() {
             {helpSteps.map((step, index) => (
               <article
                 key={step.title}
-                className="group relative flex min-h-[260px] flex-col justify-between overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 text-gray-900 shadow-sm transition-transform transition-colors transition-shadow hover:-translate-y-1 hover:border-gray-900 hover:bg-gray-900 hover:text-white hover:shadow-xl"
+                className="group relative flex min-h-[260px] flex-col justify-between overflow-hidden rounded-3xl border border-gray-200 bg-black/5 p-8 text-gray-900 transition-transform transition-colors transition-shadow hover:-translate-y-1 hover:border-gray-900 hover:bg-gray-900 hover:text-white hover:shadow-xl"
               >
                 <div className="space-y-4">
                   <span className="text-xs font-medium uppercase tracking-wide text-gray-500 transition-colors group-hover:text-white/70">
@@ -144,10 +128,10 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section aria-labelledby="faq-heading" className="w-full bg-white text-black">
+      <section aria-labelledby="faq-heading" className="w-full text-[#1C1D1B]">
         <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 py-24 md:py-28 lg:flex-row lg:items-center lg:justify-between">
           <div className="w-full max-w-xl space-y-6">
-            <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-xs font-medium uppercase tracking-wide text-black">
+            <span className="inline-flex items-center rounded-full border border-[#1C1D1B]/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-[#1C1D1B]">
               FAQ
             </span>
             <h2 id="faq-heading" className="text-3xl font-semibold sm:text-4xl">
@@ -158,9 +142,9 @@ export default function Home() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-900"
+              className="group inline-flex items-center justify-center rounded-2xl border border-[#1C1D1B]/20 px-4 py-2 text-sm font-medium text-[#1C1D1B] transition-colors hover:border-[#B4FF00] focus-visible:outline-none"
             >
-              Contact us
+              <AnimatedNeonText text="Contact us" className="gap-[0.08em]" />
             </Link>
           </div>
 
@@ -168,11 +152,11 @@ export default function Home() {
             {faqItems.map((item) => (
               <details
                 key={item.question}
-                className="group rounded-2xl bg-black/5 p-4 shadow-sm"
+                className="group rounded-2xl border border-[#1C1D1B]/10 p-4 shadow-sm"
               >
                 <summary className="flex cursor-pointer items-center justify-between text-lg font-medium">
                   <span>{item.question}</span>
-                  <span className="ml-4 flex h-9 w-9 items-center justify-center rounded-full bg-black/10 transition-transform group-open:rotate-180">
+                  <span className="ml-4 flex h-9 w-9 items-center justify-center rounded-full border border-[#1C1D1B]/15 transition-transform group-open:rotate-180">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
