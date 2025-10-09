@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t bg-white/80 backdrop-blur">
+    <footer className="bg-white/80 backdrop-blur">
       <div className="mx-auto max-w-5xl px-4 py-4">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           {/* Left: stacked links above copyright */}
@@ -23,7 +23,7 @@ export default function Footer() {
               </Link>
               <Link
                 href="/get-started"
-                className="mt-1 inline-flex items-center rounded-full border border-gray-900 px-3 py-1 text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+                className="mt-1 inline-flex items-center rounded-full bg-gray-900 px-3 py-1 text-white transition-colors hover:bg-black"
               >
                 Get started
               </Link>
@@ -46,7 +46,7 @@ export default function Footer() {
                 aria-label="Your email"
                 autoComplete="email"
                 required
-                className="h-10 w-48 sm:w-64 rounded-md border border-gray-300 px-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900/10"
+                className="h-10 w-48 sm:w-64 rounded-md bg-white px-3 text-sm text-gray-900 placeholder-gray-400 shadow focus:outline-none focus:ring-2 focus:ring-gray-900/10"
               />
               <button
                 type="submit"
