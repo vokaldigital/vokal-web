@@ -9,14 +9,23 @@ export default function Footer() {
           {/* Left: stacked links above copyright */}
           <div className="flex flex-col items-start gap-2">
             <nav aria-label="Footer navigation" className="flex flex-col items-start gap-1 text-sm">
-              <Link href="/services" className="text-gray-700 transition-colors hover:text-gray-900">
-                Services
+              <Link href="/how-it-works" className="text-gray-700 transition-colors hover:text-gray-900">
+                How it works
               </Link>
-              <Link href="/about" className="text-gray-700 transition-colors hover:text-gray-900">
-                About
+              <Link href="/pricing" className="text-gray-700 transition-colors hover:text-gray-900">
+                Pricing
               </Link>
               <Link href="/contact" className="text-gray-700 transition-colors hover:text-gray-900">
-                Contact
+                Contact us
+              </Link>
+              <Link href="/login" className="text-gray-700 transition-colors hover:text-gray-900">
+                Log in
+              </Link>
+              <Link
+                href="/get-started"
+                className="mt-1 inline-flex items-center rounded-full border border-gray-900 px-3 py-1 text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+              >
+                Get started
               </Link>
             </nav>
             <span className="text-xs text-gray-500">© {year} Vokal</span>

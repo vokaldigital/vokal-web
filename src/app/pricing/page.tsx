@@ -2,11 +2,12 @@ export default function Page() {
   return (
     <main className="min-h-dvh">
       <section className="mx-auto max-w-4xl px-4 py-16">
-        <h1 className="text-3xl font-medium">Contact us</h1>
+        <h1 className="text-3xl font-medium">Pricing</h1>
         <p className="mt-4 text-gray-600">
-          Drop in your contact form, address details, or scheduling link here when you’re ready.
+          Add your plan tiers and pricing details here.
         </p>
       </section>
     </main>
   );
 }
+
