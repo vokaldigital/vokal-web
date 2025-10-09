@@ -15,7 +15,7 @@ export default function Home() {
               aria-label="Your email"
               required
               autoComplete="email"
-              className="h-11 w-full flex-1 rounded-md border border-gray-300 px-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900/10"
+              className="h-11 w-full flex-1 rounded-md bg-white px-3 text-gray-900 placeholder-gray-400 shadow focus:outline-none focus:ring-2 focus:ring-gray-900/10"
             />
             <button
               type="submit"
@@ -27,25 +27,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services segment (single container with header + 4 items) */}
-      <section aria-labelledby="services-heading" className="w-full border-t bg-white/80">
-        <div className="mx-auto max-w-5xl px-4 py-12">
-          <h2 id="services-heading" className="text-center text-2xl font-medium">
-            Our Services
-          </h2>
-          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-            <div className="rounded-md border p-5">
-              <h3 className="font-medium">Service One</h3>
-            </div>
-            <div className="rounded-md border p-5">
-              <h3 className="font-medium">Service Two</h3>
-            </div>
-            <div className="rounded-md border p-5">
-              <h3 className="font-medium">Service Three</h3>
-            </div>
-            <div className="rounded-md border p-5">
-              <h3 className="font-medium">Service Four</h3>
-            </div>
+      {/* Services segment */}
+      <section aria-labelledby="services-heading" className="w-full bg-white text-black">
+        <div className="mx-auto max-w-6xl px-4 py-16 space-y-10">
+          <div className="text-center space-y-4">
+            <span className="inline-flex items-center rounded-full border px-4 py-1 text-xs font-medium uppercase tracking-wide text-gray-700">
+              Services
+            </span>
+            <h2 id="services-heading" className="text-3xl font-semibold sm:text-4xl">
+              Your Growth Partnership Platform
+            </h2>
+            <p className="mx-auto max-w-2xl text-sm text-gray-600">
+              We combine strategy, execution, and support so you can stay focused on leading the business forward.
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2">
+            {services.map((service) => (
+              <div key={service.title} className="flex items-start gap-4">
+                <span className="mt-1 flex h-10 w-10 items-center justify-center rounded-lg bg-gray-900 text-sm font-semibold text-white">
+                  {service.icon}
+                </span>
+                <div>
+                  <h3 className="font-medium text-gray-900">{service.title}</h3>
+                  <p className="mt-2 text-sm text-gray-600">{service.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -53,31 +61,50 @@ export default function Home() {
       {/* Spacer */}
       <div aria-hidden className="h-24 md:h-32" />
 
-      {/* How we help — four full-screen boxes stacked */}
-      <section aria-labelledby="help-heading" className="w-full">
-        <div className="mx-auto max-w-5xl px-4">
-          <h2 id="help-heading" className="text-center text-2xl font-medium">
-            How We Help Improve Your Business
-          </h2>
-        </div>
-        <div className="mt-6 space-y-6">
-          <div className="min-h-[calc(100svh/1.75)] w-full border bg-white flex items-center justify-center">
-            <h3 className="text-xl font-medium text-gray-900">Impact Area One</h3>
+      {/* How we help — structured explainer */}
+      <section aria-labelledby="help-heading" className="w-full bg-white text-black">
+        <div className="mx-auto max-w-6xl px-4 py-16 space-y-10">
+          <div className="text-center space-y-4">
+            <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-xs font-medium uppercase tracking-wide">
+              How it works
+            </span>
+            <h2 id="help-heading" className="text-3xl font-semibold sm:text-4xl">
+              How we help improve your business
+            </h2>
+            <p className="mx-auto max-w-2xl text-sm text-gray-600">
+              We partner with your team to remove the guesswork, install repeatable systems, and keep everything moving without adding overhead.
+            </p>
           </div>
-          <div className="min-h-[calc(100svh/1.75)] w-full border bg-white flex items-center justify-center">
-            <h3 className="text-xl font-medium text-gray-900">Impact Area Two</h3>
-          </div>
-          <div className="min-h-[calc(100svh/1.75)] w-full border bg-white flex items-center justify-center">
-            <h3 className="text-xl font-medium text-gray-900">Impact Area Three</h3>
-          </div>
-          <div className="min-h-[calc(100svh/1.75)] w-full border bg-white flex items-center justify-center">
-            <h3 className="text-xl font-medium text-gray-900">Impact Area Four</h3>
+
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-center">
+            <div className="space-y-6">
+              {helpSteps.map((step, index) => (
+                <div
+                  key={step.title}
+                  className="flex items-start gap-4 rounded-2xl bg-gray-50 p-6 shadow-sm"
+                >
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-900 text-sm font-medium text-white">
+                    {index + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900">{step.title}</h3>
+                    <p className="mt-2 text-sm text-gray-600">{step.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="rounded-3xl bg-gray-50 p-10 shadow-sm">
+              <div className="flex h-full min-h-[280px] items-center justify-center text-sm text-gray-500">
+                Add screenshots or workflow visuals here.
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section aria-labelledby="faq-heading" className="w-full border-t bg-white text-black">
+      <section aria-labelledby="faq-heading" className="w-full bg-white text-black">
         <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 lg:flex-row lg:items-center lg:justify-between">
           <div className="w-full max-w-xl space-y-6">
             <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-xs font-medium uppercase tracking-wide text-black">
@@ -101,7 +128,7 @@ export default function Home() {
             {faqItems.map((item) => (
               <details
                 key={item.question}
-                className="group rounded-2xl border border-black/10 bg-black/5 p-4"
+                className="group rounded-2xl bg-black/5 p-4 shadow-sm"
               >
                 <summary className="flex cursor-pointer items-center justify-between text-lg font-medium">
                   <span>{item.question}</span>
@@ -124,9 +151,68 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Free call CTA */}
+      <section aria-labelledby="call-heading" className="w-full bg-white text-black">
+        <div className="mx-auto max-w-5xl px-4 py-20 text-center space-y-6">
+          <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-xs font-medium uppercase tracking-wide">
+            Free Call
+          </span>
+          <h2 id="call-heading" className="text-3xl font-semibold sm:text-4xl">
+            Book a 30-minute strategy call with our team.
+          </h2>
+          <p className="mx-auto max-w-2xl text-gray-600">
+            Share your goals, ask questions, and leave with a clear plan for what comes next—no strings attached.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-full bg-gray-900 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-black"
+          >
+            Schedule your free call
+          </Link>
+        </div>
+      </section>
     </main>
   );
 }
+
+const helpSteps = [
+  {
+    title: "Clarify objectives",
+    description: "We start with a quick audit to understand your goals, customers, and current momentum.",
+  },
+  {
+    title: "Design the roadmap",
+    description: "Together we shape a focused plan, assign ownership, and set the milestones that matter most.",
+  },
+  {
+    title: "Launch and iterate",
+    description: "Our team partners with yours to execute, measure impact, and keep improvements rolling every week.",
+  },
+];
+
+const services = [
+  {
+    title: "Stand out to your market",
+    description: "Position your brand with compelling messaging, identity, and customer experiences that convert.",
+    icon: "1",
+  },
+  {
+    title: "Simplify your operations",
+    description: "Streamline tools, workflows, and automations so teams can move faster without extra headcount.",
+    icon: "2",
+  },
+  {
+    title: "Unlock new revenue",
+    description: "Identify growth bets, validate them quickly, and launch offerings that meet demand.",
+    icon: "3",
+  },
+  {
+    title: "Stay future-ready",
+    description: "Measure performance, iterate in short cycles, and keep momentum with ongoing guidance.",
+    icon: "4",
+  },
+];
 
 const faqItems = [
   {
