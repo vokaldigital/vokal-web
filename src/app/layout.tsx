@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "New App",
+  title: "Vokal Digital",
   description: "Fresh Next.js + Tailwind starter",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],

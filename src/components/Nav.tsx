@@ -17,14 +17,17 @@ export default function Nav() {
 
           {/* Desktop links */}
           <nav className="hidden items-center gap-8 text-sm md:flex md:text-base" aria-label="Primary">
-            <Link href="/how-it-works" className="text-gray-700 transition-colors hover:text-gray-900">
-              How it works
+            <Link href="/work" className="text-gray-700 transition-colors hover:text-gray-900">
+              Work
             </Link>
-            <Link href="/pricing" className="text-gray-700 transition-colors hover:text-gray-900">
-              Pricing
+            <Link href="/services" className="text-gray-700 transition-colors hover:text-gray-900">
+              Services
             </Link>
-            <Link href="/contact" className="text-gray-700 transition-colors hover:text-gray-900">
-              Contact us
+            <Link href="/approach" className="text-gray-700 transition-colors hover:text-gray-900">
+              Approach
+            </Link>
+            <Link href="/about" className="text-gray-700 transition-colors hover:text-gray-900">
+              About
             </Link>
             <div className="flex items-center gap-4">
               <Link href="/login" className="text-gray-700 transition-colors hover:text-gray-900">
@@ -59,14 +62,17 @@ export default function Nav() {
           <div className="md:hidden">
             <div className="mt-2 rounded-md bg-white p-2 shadow">
               <div className="flex flex-col gap-1">
-                <Link href="/how-it-works" className="px-2 py-2 text-gray-800 hover:text-black" onClick={() => setOpen(false)}>
-                  How it works
+                <Link href="/work" className="px-2 py-2 text-gray-800 hover:text-black" onClick={() => setOpen(false)}>
+                  Work
                 </Link>
-                <Link href="/pricing" className="px-2 py-2 text-gray-800 hover:text-black" onClick={() => setOpen(false)}>
-                  Pricing
+                <Link href="/services" className="px-2 py-2 text-gray-800 hover:text-black" onClick={() => setOpen(false)}>
+                  Services
                 </Link>
-                <Link href="/contact" className="px-2 py-2 text-gray-800 hover:text-black" onClick={() => setOpen(false)}>
-                  Contact us
+                <Link href="/approach" className="px-2 py-2 text-gray-800 hover:text-black" onClick={() => setOpen(false)}>
+                  Approach
+                </Link>
+                <Link href="/about" className="px-2 py-2 text-gray-800 hover:text-black" onClick={() => setOpen(false)}>
+                  About
                 </Link>
                 <Link href="/login" className="px-2 py-2 text-gray-800 hover:text-black" onClick={() => setOpen(false)}>
                   Log in
