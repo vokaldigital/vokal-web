@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -10,8 +11,8 @@ export default function Nav() {
     <nav className="fixed inset-x-0 top-0 z-50 bg-white/80 backdrop-blur">
       <div className="mx-auto max-w-5xl px-4">
         <div className="flex h-14 items-center justify-between">
-          <Link href="/" className="font-medium text-gray-900">
-            Vokal
+          <Link href="/" className="flex items-center" aria-label="Vokal home">
+            <Image src="/vokal-logo.svg" alt="Vokal" width={150} height={36} priority />
           </Link>
 
           {/* Desktop links */}
