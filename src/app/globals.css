@@ -1,10 +1,9 @@
 /* =========================================
-   VOKAL — GLOBAL STYLES (CLEAN + FIXED)
+   VOKAL — GLOBAL STYLES (FUSION EDITION)
    ========================================= */
 
-/* 1) IMPORTS — must be first in plain CSS */
+/* 1) IMPORTS — must literally be first (before Tailwind) */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&display=swap');
-@import "tw-animate-css";
 
 /* 2) TAILWIND DIRECTIVES */
 @tailwind base;
@@ -18,24 +17,24 @@
                "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
                "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-  /* base tones */
-  --vokal-base:#0b0f0f;
-  --vokal-base2:#0e1716;
+  /* base tones (cold white surface fading to near-white) */
+  --vokal-base: #f7f9f8;       /* off-white with a sterile, greenish cast */
+  --vokal-base2:#e9eeee;       /* top vignette start */
 
   /* text */
-  --vokal-text:#ffffff;
-  --vokal-muted:rgba(255,255,255,.68);
+  --vokal-text:#5b5b5b;
+  --vokal-muted:rgba(121, 121, 121, 0.68);
 
   /* liquid-glass / accent */
-  --vokal-mint:#a7e3c9;
+  --vokal-mint:hsl(81, 33%, 54%);
   --mint-100: rgba(167,227,201,.16);
-  --mint-200: rgba(167,227,201,.62);
-  --mint-500: #a7e3c9;
-  --mint-glow: rgba(167,227,201,.55);
+  --mint-200: hsla(81, 33%, 54%, 0.62);
+  --mint-500: hsl(81, 33%, 54%);
+  --mint-glow: hsla(81, 72%, 60%, 0.55);
 
   /* borders / glass */
-  --vokal-border:rgba(255,255,255,.14);
-  --vokal-bg:rgba(255,255,255,.06);
+  --vokal-border:rgba(0,0,0,.09);
+  --vokal-bg:rgba(255,255,255,.55);
 
   --radius-pill:999px;
   --radius:0.625rem;
@@ -43,21 +42,21 @@
   /* shadcn palette (kept for utilities that rely on them) */
   --background:oklch(1 0 0);
   --foreground:oklch(0.145 0 0);
-  --card:oklch(1 0 0);
+  --card:oklch(0% 0 0);
   --card-foreground:oklch(0.145 0 0);
-  --popover:oklch(1 0 0);
+  --popover:oklch(0% 0 0);
   --popover-foreground:oklch(0.145 0 0);
   --primary:oklch(0.205 0 0);
   --primary-foreground:oklch(0.985 0 0);
-  --secondary:oklch(0.97 0 0);
+  --secondary:oklch(0% 0 0);
   --secondary-foreground:oklch(0.205 0 0);
-  --muted:oklch(0.97 0 0);
+  --muted:oklch(0% 0 0);
   --muted-foreground:oklch(0.556 0 0);
-  --accent:oklch(0.97 0 0);
+  --accent:oklch(0% 0 0);
   --accent-foreground:oklch(0.205 0 0);
   --destructive:oklch(0.577 0.245 27.325);
-  --border:oklch(0.922 0 0);
-  --input:oklch(0.922 0 0);
+  --border:oklch(0% 0 0);
+  --input:oklch(0% 0 0);
   --ring:oklch(0.708 0 0);
   --chart-1:oklch(0.646 0.222 41.116);
   --chart-2:oklch(0.6 0.118 184.704);
@@ -68,14 +67,15 @@
   --sidebar-foreground:oklch(0.145 0 0);
   --sidebar-primary:oklch(0.205 0 0);
   --sidebar-primary-foreground:oklch(0.985 0 0);
-  --sidebar-accent:oklch(0.97 0 0);
+  --sidebar-accent:oklch(0% 0 0);
   --sidebar-accent-foreground:oklch(0.205 0 0);
-  --sidebar-border:oklch(0.922 0 0);
+  --sidebar-border:oklch(0% 0 0);
   --sidebar-ring:oklch(0.708 0 0);
 
   /* mint helpers */
   --mint-40: rgba(167, 227, 201, .40);
   --mint-08: rgba(167, 227, 201, .08);
+  --mint-glow-rgb: 175, 226, 80;
 
   /* overlay layout vars */
   --nav-pill-h: 58px;
@@ -96,26 +96,68 @@ html, body{
   -webkit-font-smoothing: antialiased;
 }
 
-/* vignette */
+/* LAYER A — cold vignette + subtle vertical fade (sterile surface) */
 html::before{
-  content:""; position:fixed; inset:-40vh -40vw; z-index:-1; pointer-events:none;
+  content:"";
+  position:fixed;
+  inset:-40vh -40vw;            /* bleed beyond edges to avoid seams */
+  z-index:-3;
+  pointer-events:none;
   background:
-    radial-gradient(70vw 60vh at 22% 16%, rgba(255,255,255,.06), transparent 60%),
-    radial-gradient(90vw 70vh at 78% 84%, rgba(255,255,255,.05), transparent 65%),
+    radial-gradient(70vw 60vh at 22% 18%, rgba(0,0,0,.06), transparent 60%),
+    radial-gradient(90vw 70vh at 78% 84%, rgba(0,0,0,.05), transparent 65%),
     linear-gradient(180deg, var(--vokal-base2) 0%, var(--vokal-base) 70%);
 }
 
-/* faint plus grid */
+/* FUSION LINES — technical horizontal + vertical bars */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    /* horizontal lines */
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.08) 0 1px,
+      transparent 1px 120px
+    ),
+    /* vertical lines */
+    repeating-linear-gradient(
+      to right,
+      rgba(0,0,0,0.08) 0 1px,
+      transparent 1px 160px
+    );
+  opacity:0.25;
+}
+/* LAYER B — directional motion streaks (velocity) */
 html::after{
-  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><g stroke='%23ffffff' stroke-opacity='0.06' stroke-width='1.3' stroke-linecap='round'><line x1='120' y1='104' x2='120' y2='136'/><line x1='104' y1='120' x2='136' y2='120'/></g></svg>");
-  background-repeat:repeat; background-size:240px 240px; background-position:0 0;
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  background:
+    /* wide green-ish smear flowing right */
+    linear-gradient(90deg, rgba(199, 227, 167, 0.22) 8%, rgba(192, 227, 167, 0) 70%),
+    /* grey streak */
+    linear-gradient(90deg, rgba(0,0,0,.06) 0%, rgba(0,0,0,0) 45%),
+    /* faint repeating mini-streaks */
+    repeating-linear-gradient(
+      to right,
+      rgba(0,0,0,.06) 0 1px,
+      transparent 1px 120px
+    );
+  filter: blur(8px); /* softens the streaks like motion blur */
+  opacity:.65;
 }
 
-/* stack level */
+
+/* ensure content paints above */
 body, main, header, nav { position:relative; z-index:1; }
 
-/* nav links cosmetics */
+/* kill default link underlines anywhere in nav */
 nav a, .nav-pill, .pill { text-decoration:none; -webkit-tap-highlight-color:transparent; }
 
 /* ------------------------------
@@ -126,7 +168,8 @@ nav a, .nav-pill, .pill { text-decoration:none; -webkit-tap-highlight-color:tran
   padding:24px 32px;
   z-index:20;
 }
-.brand-logo{ height:40px; width:auto; display:block; }
+.brand-logo{ height:40px; width:auto; display:block; opacity:.85; transition:opacity .15s ease; }
+.brand-logo:hover { opacity:.90; }
 .nav-links{ display:flex; align-items:center; gap:16px; }
 .nav-pill{ padding:16px 36px !important; }
 
@@ -138,13 +181,13 @@ nav a, .nav-pill, .pill { text-decoration:none; -webkit-tap-highlight-color:tran
   display:inline-flex; align-items:center; justify-content:center;
   padding:12px 18px;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,.62);
-  color:#fff;
+  border:1px solid rgba(32, 32, 32, 0.62);
+  color:#000000;
   background:transparent;
   transition:
-    transform .1s ease,
-    box-shadow .2s ease,
-    border-color .1s ease,
+    transform .2s ease,
+    box-shadow .3s ease,
+    border-color .2s ease,
     color .2s ease,
     background-color .2s ease;
 }
@@ -164,16 +207,16 @@ nav a, .nav-pill, .pill { text-decoration:none; -webkit-tap-highlight-color:tran
   display:inline-flex; align-items:center; justify-content:center;
   padding:12px 18px;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,.55);
+  border:1px solid rgba(0,0,0,.12);
   color:#0b0f0f;
-  background:rgba(242,242,242,.65);
+  background:rgba(242,242,242,.8);
   backdrop-filter:blur(6px);
   transition:
     transform .1s ease,
-    box-shadow .15s ease,
-    border-color .15s ease,
-    color .15s ease,
-    background-color .15s ease;
+    box-shadow .5s ease,
+    border-color .25s ease,
+    color .25s ease,
+    background-color .25s ease;
 }
 .btn-filled:hover,
 .btn-filled:focus-visible{
@@ -193,12 +236,53 @@ nav a, .nav-pill, .pill { text-decoration:none; -webkit-tap-highlight-color:tran
   display:grid; place-items:center;
   padding:clamp(24px,5vw,64px);
   background:transparent;
+  position:relative;
+  overflow:hidden;
 }
-.hero-inner{ max-width:980px; margin:0 auto; text-align:center; }
-.headline{ font-size:clamp(40px,7vw,92px); line-height:.95; font-weight:800; letter-spacing:-.02em; }
+
+/* velocity band behind headline */
+.hero::before{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:-10vw;
+  right:-10vw;
+  height:120px;
+  transform:translateY(-50%);
+  background:
+    linear-gradient(90deg, rgba(var(--mint-glow-rgb), 0.3) 0%, rgba(var(--mint-glow-rgb), 0) 75%),
+    linear-gradient(90deg, rgba(0,0,0,.10) 15%, rgba(0,0,0,0) 85%);
+  filter: blur(12px);
+  z-index:0;
+  opacity:.85;
+}
+
+/* fine technical rule, like the album’s hairlines */
+.hero::after{
+  content:"";
+  position:absolute;
+  bottom:42px;
+  left:8%;
+  right:8%;
+  height:1px;
+  background:rgba(0,0,0,.08);
+  z-index:0;
+}
+
+.hero-inner{ max-width:980px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+.headline{
+  font-size:clamp(40px,7vw,92px);
+  line-height:.95;
+  font-weight:300;               /* lighter, clinical */
+  letter-spacing:.02em;          /* small tracking for techno print feel */
+  mix-blend-mode:multiply;       /* sinks into the surface slightly */
+}
 .headline .highlight{
-  display:inline-block; background:#fff; color:#0b0f0f;
-  padding:.12em .28em; border-radius:.4rem;
+  display:inline-block;
+  background:#000000;
+  color:#ffffff;
+  padding:.12em .28em;
+  border-radius:.4rem;
 }
 .sub{ margin-top:14px; color:var(--vokal-muted); font-size:clamp(16px,1.6vw,20px); }
 .lead{ margin-top:24px; display:flex; gap:10px; justify-content:center; }
@@ -208,7 +292,7 @@ nav a, .nav-pill, .pill { text-decoration:none; -webkit-tap-highlight-color:tran
   color:var(--vokal-text);
   background:var(--vokal-bg);
   border:1px solid var(--vokal-border);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), inset 0 -1px 0 rgba(0,0,0,.35);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.5), inset 0 -1px 0 rgba(0,0,0,.12);
   -webkit-backdrop-filter: blur(12px) saturate(160%);
   backdrop-filter: blur(12px) saturate(160%);
   outline:none; transition:border-color .2s, box-shadow .3s, background-color .2s;
@@ -216,7 +300,7 @@ nav a, .nav-pill, .pill { text-decoration:none; -webkit-tap-highlight-color:tran
 .lead input::placeholder{ color:var(--vokal-muted); }
 .lead input:focus{
   border-color:var(--mint-500);
-  box-shadow:0 0 6px var(--mint-500), 0 0 16px var(--mint-glow), inset 0 1px 0 rgba(255,255,255,.1);
+  box-shadow:0 0 6px var(--mint-500), 0 0 16px var(--mint-glow), inset 0 1px 0 rgba(255,255,255,.6);
 }
 @media (max-width:640px){
   .lead{ flex-direction:column; align-items:stretch; }
@@ -237,16 +321,16 @@ nav a, .nav-pill, .pill { text-decoration:none; -webkit-tap-highlight-color:tran
 .vokal-burger{
   display:none; position:relative;
   width:40px; height:40px; border-radius:10px;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.55);
+  border:1px solid rgba(0,0,0,.12);
   cursor:pointer;
   -webkit-backdrop-filter: blur(14px) saturate(160%);
   backdrop-filter: blur(14px) saturate(160%);
   transition: all .3s ease;
 }
 .vokal-burger span{
-  position:absolute; left:9px; right:9px; height:2px; background:#fff; border-radius:2px;
-  transition:transform .25s ease, opacity .2s ease, top .25s ease;
+  position:absolute; left:9px; right:9px; height:2px; background:#000; border-radius:2px;
+  transition:transform .25s ease, opacity .2s ease, top .25s ease, background .2s ease;
 }
 .vokal-burger span:nth-child(1){ top:12px }
 .vokal-burger span:nth-child(2){ top:19px }
@@ -307,9 +391,9 @@ nav a, .nav-pill, .pill { text-decoration:none; -webkit-tap-highlight-color:tran
   display:block; width:100%; text-align:center;
   padding:14px 20px;
   border-radius:999px;
-  border:1px solid #fff;
-  color:#000;
-  background:#fff;
+  border:1px solid #000;
+  color:#fff;
+  background:#000;
   transition:
     transform .2s ease,
     box-shadow .35s ease,
@@ -344,8 +428,8 @@ nav a, .nav-pill, .pill { text-decoration:none; -webkit-tap-highlight-color:tran
   width: 44px; height: 44px;
   border-radius: 12px;
   z-index: 10000;
-  background: rgba(255,255,255,.10);
-  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.70);
+  border: 1px solid rgba(0,0,0,.12);
   -webkit-backdrop-filter: blur(14px) saturate(160%);
   backdrop-filter: blur(14px) saturate(160%);
   cursor: pointer;
@@ -356,7 +440,7 @@ nav a, .nav-pill, .pill { text-decoration:none; -webkit-tap-highlight-color:tran
   content: "";
   position: absolute;
   left: 12px; right: 12px; top: 21px;
-  height: 2px; border-radius: 2px; background:#fff;
+  height: 2px; border-radius: 2px; background:#000;
 }
 .vokal-close::before{ transform:rotate(45deg); }
 .vokal-close::after { transform:rotate(-45deg); }
@@ -390,22 +474,152 @@ nav a, .nav-pill, .pill { text-decoration:none; -webkit-tap-highlight-color:tran
 }
 
 /* ------------------------------
-   Global text tone (Noto, no Roboto)
+   Global text tone (Noto)
 ------------------------------ */
 .text-white,
 .text-light,
 h1, h2, h3, h4, h5, h6,
 p, span, a, li {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(70, 70, 70, 0.85);     /* all text black */
   font-weight: 350;
   font-family: var(--font-base);
 }
 
-.brand-logo {
-  opacity: 0.85;                /* slightly transparent */
-  transition: opacity .15s ease;
+/* --------------------------------
+   FINAL OVERRIDES (safety net)
+-------------------------------- */
+:root{ --vokal-text:#6c6c6c; }
+.headline .highlight{ background:hsla(0, 0%, 100%, 0) !important; color:hsl(81, 50%, 50%) !important; }
+
+/* Eurostile lowercase tone */
+body, h1, h2, h3, h4, h5, h6, p, span, a, li, button, input, label {
+  font-family: var(--font-base);
+  font-weight: 300;
+  text-transform: lowercase;
+  letter-spacing: 0.03em;  /* slight spacing for legibility */
 }
 
-.brand-logo:hover {
-  opacity: .90;                   /* full brightness on hover */
+/* ===== FUSION POLISH — minimal, precise, asymmetrical ===== */
+
+/* 1) Paper-white surface: colder, cleaner */
+:root{
+  --paper: #fbfcfb;       /* near-white with a sterile tint */
+  --ink: rgba(0,0,0,.08); /* hairline ink */
+  --ink-2: rgba(0,0,0,.05);
+  /* lane color matches the mint hover glow via --mint-glow-rgb */
+}
+
+/* lighten overall ground and reduce fog */
+html::before{
+  background:
+    radial-gradient(70vw 60vh at 22% 18%, rgba(0,0,0,.04), transparent 60%),
+    radial-gradient(90vw 70vh at 78% 84%, rgba(0,0,0,.035), transparent 65%),
+    linear-gradient(180deg, #f1f4f3 0%, var(--paper) 76%);
+}
+
+/* 2) Hairline system: fewer, crisper, with hierarchy */
+body::after{
+  content:"";
+  position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    /* dominant long horizontals (very light) */
+    repeating-linear-gradient(
+      to bottom,
+      var(--ink) 0 1px,
+      transparent 1px 140px
+    ),
+    /* faint verticals */
+    repeating-linear-gradient(
+      to right,
+      var(--ink-2) 0 1px,
+      transparent 1px 180px
+    );
+  opacity:.22;
+}
+
+/* 3) Asymmetric rules: one tall left vertical + a couple offsets */
+html::before,
+html::after{} /* keep order above */
+body::before{
+  content:"";
+  position:fixed; inset:0; z-index:-2; pointer-events:none;
+  background:
+    /* tall left guiding vertical */
+    linear-gradient(to bottom, var(--ink) 0 0) 8% 0 / 1px 100% no-repeat,
+    /* thin horizontal near hero baseline */
+    linear-gradient(to right, var(--ink-2) 0 0) 0 62% / 100% 1px no-repeat,
+    /* lighter lower register line */
+    linear-gradient(to right, var(--ink-2) 0 0) 0 calc(85% + 2px) / 100% 1px no-repeat;
+  opacity:.28;
+}
+
+/* 4) Speed lane: thinner, tapered, two-tone, cleaner blur */
+.hero{
+  position:relative; overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  left:-12vw; right:-6vw;
+  top:52%; height:70px;           /* thinner */
+  transform:translateY(-50%);
+  background:
+    /* inner bright core aligned with hover glow */
+    linear-gradient(90deg, rgba(var(--mint-glow-rgb), .55) 0%, rgba(var(--mint-glow-rgb), 0) 90%),
+    /* darker undershadow to suggest depth */
+    linear-gradient(90deg, rgba(0,0,0,.08) 10%, rgba(0,0,0,0) 85%);
+  filter: blur(8px);               /* less mushy */
+  opacity:.9;
+  /* taper to the right like the album art */
+  -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,1) 0 78%, rgba(0,0,0,.7) 88%, rgba(0,0,0,0) 100%);
+          mask-image: linear-gradient(90deg, rgba(0,0,0,1) 0 78%, rgba(0,0,0,.7) 88%, rgba(0,0,0,0) 100%);
+}
+
+/* 5) Micro-noise so it feels printed, not fogged */
+html{
+  background-image:
+    radial-gradient(100% 100% at 50% 0%, rgba(0,0,0,.02), rgba(0,0,0,0) 60%);
+}
+html::marker{} /* noop, avoids bundlers whining */
+body{
+  /* CSS-only noise without heavy images */
+  --n: rgba(0,0,0,.02);
+  background-image:
+    repeating-radial-gradient(circle at 20% 30%, var(--n) 0 0.5px, transparent 0.5px 6px),
+    repeating-radial-gradient(circle at 80% 70%, var(--n) 0 0.5px, transparent 0.5px 7px);
+  background-blend-mode:multiply;
+}
+
+/* 6) Headline tone: lighter, lower contrast */
+.headline{
+  font-weight:300;
+  letter-spacing:.02em;
+  color: rgba(0,0,0,.75);
+}
+.headline .highlight{
+  background:#0a0a0a !important;
+  color:#fff !important;
+  border-radius:.35rem;
+  padding:.10em .26em;
+}
+
+/* 7) Booklet corners (optional but on-brand) */
+@media (min-width:700px){
+  body::view-transition-group(root){} /* harmless shim */
+  body{
+    border-radius:18px;
+    overflow-x:hidden;
+    box-shadow:
+      0 8px 30px rgba(0,0,0,.06),
+      inset 0 0 0 1px rgba(0,0,0,.05);
+  }
+}
+
+/* 8) Color knobs for the lane — change once, affects everything */
+:root{
+  /* try these presets by swapping the --mint-glow-rgb numbers above:
+     – Teal: 18,142,122
+     – Ice: 120,185,255
+     – Charcoal (super subtle): 34,34,34
+  */
 }
