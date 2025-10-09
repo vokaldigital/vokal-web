@@ -9,7 +9,7 @@ export default function Nav() {
 
   return (
     <nav className="fixed inset-x-0 top-0 z-50 bg-white/80 backdrop-blur">
-      <div className="mx-auto max-w-5xl px-4">
+      <div className="mx-auto max-w-5xl px-4 py-3">
         <div className="flex h-14 items-center justify-between">
           <Link href="/" className="flex items-center" aria-label="Vokal home">
             <Image src="/vokal-logo.svg" alt="Vokal" width={150} height={36} priority />
@@ -17,9 +17,6 @@ export default function Nav() {
 
           {/* Desktop links */}
           <nav className="hidden items-center gap-8 text-sm md:flex md:text-base" aria-label="Primary">
-            <Link href="/work" className="text-gray-700 transition-colors hover:text-gray-900">
-              Work
-            </Link>
             <Link href="/services" className="text-gray-700 transition-colors hover:text-gray-900">
               Services
             </Link>
@@ -29,13 +26,16 @@ export default function Nav() {
             <Link href="/about" className="text-gray-700 transition-colors hover:text-gray-900">
               About
             </Link>
-            <div className="flex items-center gap-4">
-              <Link href="/login" className="text-gray-700 transition-colors hover:text-gray-900">
+            <div className="flex items-center gap-3 pl-6">
+              <Link
+                href="/login"
+                className="rounded-full bg-white px-4 py-2 text-gray-900 shadow-sm ring-1 ring-gray-200 transition-colors hover:bg-gray-50"
+              >
                 Log in
               </Link>
               <Link
                 href="/get-started"
-                className="rounded-full bg-gray-900 px-4 py-2 text-white transition-colors hover:bg-black"
+                className="rounded-full bg-gray-900 px-4 py-2 text-white shadow-sm transition-colors hover:bg-black"
               >
                 Get started
               </Link>
@@ -62,9 +62,6 @@ export default function Nav() {
           <div className="md:hidden">
             <div className="mt-2 rounded-md bg-white p-2 shadow">
               <div className="flex flex-col gap-1">
-                <Link href="/work" className="px-2 py-2 text-gray-800 hover:text-black" onClick={() => setOpen(false)}>
-                  Work
-                </Link>
                 <Link href="/services" className="px-2 py-2 text-gray-800 hover:text-black" onClick={() => setOpen(false)}>
                   Services
                 </Link>

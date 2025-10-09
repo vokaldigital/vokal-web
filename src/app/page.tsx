@@ -3,11 +3,11 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="min-h-dvh">
-      <section className="min-h-[80svh] grid place-items-center p-6">
-        <div className="text-center space-y-4">
-          <h1 className="text-3xl font-medium">Hello, world</h1>
+      <section className="min-h-[80svh] grid place-items-center px-6 pb-24 pt-12 md:pb-32">
+        <div className="w-full max-w-3xl space-y-4 text-left">
+          <h1 className="text-3xl font-medium sm:text-4xl">Get loud with Vokal.</h1>
           <p className="text-gray-600">You’re looking at a fresh start.</p>
-          <form className="mx-auto flex max-w-md items-center gap-2" action="/contact">
+          <form className="flex max-w-md items-center gap-2" action="/contact">
             <input
               type="email"
               name="email"
@@ -29,7 +29,7 @@ export default function Home() {
 
       {/* Services segment */}
       <section aria-labelledby="services-heading" className="w-full bg-white text-black">
-        <div className="mx-auto max-w-6xl px-4 py-16 space-y-10">
+        <div className="mx-auto max-w-6xl px-4 py-24 md:py-28 space-y-10">
           <div className="text-center space-y-4">
             <span className="inline-flex items-center rounded-full border px-4 py-1 text-xs font-medium uppercase tracking-wide text-gray-700">
               Services
@@ -58,54 +58,114 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Spacer */}
-      <div aria-hidden className="h-24 md:h-32" />
+      {/* Free call CTA */}
+      <section aria-labelledby="call-heading" className="w-full bg-white text-black">
+        <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 text-center space-y-6">
+          <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-xs font-medium uppercase tracking-wide">
+            Free Call
+          </span>
+          <h2 id="call-heading" className="text-3xl font-semibold sm:text-4xl">
+            Book a 30-minute strategy call with our team.
+          </h2>
+          <p className="mx-auto max-w-2xl text-gray-600">
+            Share your goals, ask questions, and leave with a clear plan for what comes next—no strings attached.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-full bg-gray-900 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-black"
+          >
+            Schedule your free call
+          </Link>
+        </div>
+      </section>
 
-      {/* How we help — structured explainer */}
+      {/* Spacer */}
+      <div aria-hidden className="h-14 md:h-20" />
+
+      {/* How we help — productized spread */}
       <section aria-labelledby="help-heading" className="w-full bg-white text-black">
-        <div className="mx-auto max-w-6xl px-4 py-16 space-y-10">
-          <div className="text-center space-y-4">
-            <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-xs font-medium uppercase tracking-wide">
-              How it works
-            </span>
-            <h2 id="help-heading" className="text-3xl font-semibold sm:text-4xl">
-              How we help improve your business
-            </h2>
-            <p className="mx-auto max-w-2xl text-sm text-gray-600">
-              We partner with your team to remove the guesswork, install repeatable systems, and keep everything moving without adding overhead.
-            </p>
+        <div className="mx-auto max-w-6xl px-4 py-24 md:py-28 space-y-12">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
+            <div className="space-y-5">
+              <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-xs font-medium uppercase tracking-wide">
+                How it works
+              </span>
+              <h2
+                id="help-heading"
+                className="text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl"
+              >
+                How we help improve your business
+              </h2>
+              <p className="max-w-xl text-base text-gray-600 sm:text-lg">
+                We partner with your team to remove the guesswork, install repeatable systems, and keep everything moving without adding overhead.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3 text-sm text-gray-500">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-base">
+                ←
+              </span>
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-900 bg-gray-900 text-base text-white">
+                →
+              </span>
+              <span className="ml-4 hidden text-gray-500 sm:block">
+                Swipe to explore our approach.
+              </span>
+            </div>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-center">
-            <div className="space-y-6">
-              {helpSteps.map((step, index) => (
-                <div
+          <div className="grid gap-6 md:grid-cols-3">
+            {helpSteps.map((step, index) => {
+              const isFeatureCard = index === 1;
+              return (
+                <article
                   key={step.title}
-                  className="flex items-start gap-4 rounded-2xl bg-gray-50 p-6 shadow-sm"
+                  className={`group relative flex min-h-[260px] flex-col justify-between overflow-hidden rounded-3xl border p-8 transition-shadow ${
+                    isFeatureCard
+                      ? "border-gray-900 bg-gray-900 text-white shadow-xl"
+                      : "border-gray-200 bg-white text-gray-900 shadow-sm hover:shadow-md"
+                  }`}
                 >
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-900 text-sm font-medium text-white">
-                    {index + 1}
-                  </span>
-                  <div>
-                    <h3 className="text-lg font-medium text-gray-900">{step.title}</h3>
-                    <p className="mt-2 text-sm text-gray-600">{step.description}</p>
+                  <div className="space-y-4">
+                    <span
+                      className={`text-xs font-medium uppercase tracking-wide ${
+                        isFeatureCard ? "text-white/70" : "text-gray-500"
+                      }`}
+                    >
+                      Step {index + 1}
+                    </span>
+                    <h3 className="text-2xl font-semibold leading-tight">{step.title}</h3>
+                    <p
+                      className={`text-sm ${
+                        isFeatureCard ? "text-white/80" : "text-gray-600"
+                      }`}
+                    >
+                      {step.description}
+                    </p>
                   </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="rounded-3xl bg-gray-50 p-10 shadow-sm">
-              <div className="flex h-full min-h-[280px] items-center justify-center text-sm text-gray-500">
-                Add screenshots or workflow visuals here.
-              </div>
-            </div>
+                  <span
+                    aria-hidden
+                    className={`mt-10 inline-flex h-10 w-10 items-center justify-center rounded-full border text-base transition-transform group-hover:translate-x-1 ${
+                      isFeatureCard
+                        ? "border-white/40 bg-white/10 text-white"
+                        : "border-gray-300 text-gray-900"
+                    }`}
+                  >
+                    →
+                  </span>
+                  {isFeatureCard && (
+                    <span className="pointer-events-none absolute -bottom-16 -right-14 h-52 w-52 rounded-full bg-white/10 blur-3xl" />
+                  )}
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* FAQ */}
       <section aria-labelledby="faq-heading" className="w-full bg-white text-black">
-        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 py-24 md:py-28 lg:flex-row lg:items-center lg:justify-between">
           <div className="w-full max-w-xl space-y-6">
             <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-xs font-medium uppercase tracking-wide text-black">
               FAQ
@@ -152,26 +212,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Free call CTA */}
-      <section aria-labelledby="call-heading" className="w-full bg-white text-black">
-        <div className="mx-auto max-w-5xl px-4 py-20 text-center space-y-6">
-          <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-xs font-medium uppercase tracking-wide">
-            Free Call
-          </span>
-          <h2 id="call-heading" className="text-3xl font-semibold sm:text-4xl">
-            Book a 30-minute strategy call with our team.
-          </h2>
-          <p className="mx-auto max-w-2xl text-gray-600">
-            Share your goals, ask questions, and leave with a clear plan for what comes next—no strings attached.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-full bg-gray-900 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-black"
-          >
-            Schedule your free call
-          </Link>
-        </div>
-      </section>
     </main>
   );
 }
