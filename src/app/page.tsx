@@ -1,70 +1,49 @@
+import Image from "next/image";
 import Link from "next/link";
 import { AnimatedNeonText } from "@/components/AnimatedNeonText";
+import { ScrollNeonText } from "@/components/ScrollNeonText";
 
 export default function Home() {
   return (
     <main className="min-h-dvh">
-      <section className="min-h-[80svh] grid place-items-center px-6 pb-24 pt-12 text-[#1C1D1B] md:pb-32">
+      <section className="min-h-[80svh] grid place-items-center px-6 pb-24 pt-12 text-white md:pb-32">
         <div className="w-full max-w-3xl space-y-4 text-left">
-          <h1 className="text-3xl font-medium text-[#1C1D1B] sm:text-4xl">Get Loud.</h1>
-          <p className="text-[#1C1D1B]/80">Your brand. Amplified by AI.</p>
+          <h1 className="text-3xl font-medium text-white sm:text-4xl">
+            Get <span className="inline-flex text-white"><ScrollNeonText text="Loud." /></span>
+          </h1>
+          <p className="text-white/80">Your brand. Amplified by AI.</p>
         </div>
       </section>
 
       {/* Services segment */}
-      <section aria-labelledby="services-heading" className="w-full text-[#1C1D1B]">
+      <section aria-labelledby="services-heading" className="w-full text-white">
         <div className="mx-auto max-w-6xl px-4 py-24 md:py-28 space-y-10">
-          <div className="text-center space-y-4">
-            <span className="inline-flex items-center rounded-full border px-4 py-1 text-xs font-medium uppercase tracking-wide text-gray-700">
-              Services
-            </span>
-            <h2 id="services-heading" className="text-3xl font-semibold sm:text-4xl">
-              Your Growth Partnership Platform
-            </h2>
-            <p className="mx-auto max-w-2xl text-sm text-gray-600">
-              We combine strategy, execution, and support so you can stay focused on leading the business forward.
-            </p>
-          </div>
-
           <div className="grid gap-8 md:grid-cols-2">
             {services.map((service) => (
-              <div key={service.title} className="flex items-start gap-4">
-                <span className="mt-1 flex h-10 w-10 items-center justify-center rounded-lg bg-gray-900 text-sm font-semibold text-white">
-                  {service.icon}
+              <div
+                key={service.highlight}
+                className="group flex items-start gap-4 rounded-[28px] bg-black/30 p-6 backdrop-blur-md"
+              >
+                <span className="mt-1 flex h-10 w-10 items-center justify-center rounded-lg bg-black/40 p-1">
+                  <Image
+                    src={service.iconSrc}
+                    alt=""
+                    width={24}
+                    height={24}
+                    className="h-full w-full object-contain filter invert"
+                  />
                 </span>
                 <div>
-                  <h3 className="font-medium text-gray-900">{service.title}</h3>
-                  <p className="mt-2 text-sm text-gray-600">{service.description}</p>
+                  <h3 className="font-medium text-white">
+                    {service.titlePrefix} <span className="text-[#B4FF00]">{service.highlight}</span>
+                  </h3>
+                  <p className="mt-2 text-sm text-white/70">{service.description}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Free call CTA */}
-      <section aria-labelledby="call-heading" className="w-full text-[#1C1D1B]">
-        <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 text-center space-y-6">
-          <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-xs font-medium uppercase tracking-wide">
-            Free Call
-          </span>
-          <h2 id="call-heading" className="text-3xl font-semibold sm:text-4xl">
-            Book a 30-minute strategy call with our team.
-          </h2>
-          <p className="mx-auto max-w-2xl text-gray-600">
-            Share your goals, ask questions, and leave with a clear plan for what comes next—no strings attached.
-          </p>
-          <Link
-            href="/contact"
-            className="group inline-flex items-center justify-center rounded-2xl bg-black/30 px-6 py-3 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-black/40 focus-visible:bg-black/40 focus-visible:outline-none"
-          >
-            <AnimatedNeonText text="Schedule your free call" className="gap-[0.08em]" />
-          </Link>
-        </div>
-      </section>
-
-      {/* Spacer */}
-      <div aria-hidden className="h-14 md:h-20" />
 
       {/* How we help — productized spread */}
       <section aria-labelledby="help-heading" className="w-full text-[#1C1D1B]">
@@ -124,6 +103,30 @@ export default function Home() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Spacer */}
+      <div aria-hidden className="h-14 md:h-20" />
+
+      {/* Free call CTA */}
+      <section aria-labelledby="call-heading" className="w-full text-[#1C1D1B]">
+        <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 text-center space-y-6">
+          <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-xs font-medium uppercase tracking-wide">
+            Free Call
+          </span>
+          <h2 id="call-heading" className="text-3xl font-semibold sm:text-4xl">
+            Book a 30-minute strategy call with our team.
+          </h2>
+          <p className="mx-auto max-w-2xl text-gray-600">
+            Share your goals, ask questions, and leave with a clear plan for what comes next—no strings attached.
+          </p>
+          <Link
+            href="/contact"
+            className="group inline-flex items-center justify-center rounded-2xl bg-black/30 px-6 py-3 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-black/40 focus-visible:bg-black/40 focus-visible:outline-none"
+          >
+            <AnimatedNeonText text="Schedule your free call" className="gap-[0.08em]" />
+          </Link>
         </div>
       </section>
 
@@ -197,24 +200,28 @@ const helpSteps = [
 
 const services = [
   {
-    title: "Stand out to your market",
+    titlePrefix: "Amplify your",
+    highlight: "presence",
     description: "Position your brand with compelling messaging, identity, and customer experiences that convert.",
-    icon: "1",
+    iconSrc: "/Icons/amplify.png",
   },
   {
-    title: "Simplify your operations",
+    titlePrefix: "Automate your",
+    highlight: "workflow",
     description: "Streamline tools, workflows, and automations so teams can move faster without extra headcount.",
-    icon: "2",
+    iconSrc: "/Icons/automate.png",
   },
   {
-    title: "Unlock new revenue",
+    titlePrefix: "Upgrade your",
+    highlight: "experience",
     description: "Identify growth bets, validate them quickly, and launch offerings that meet demand.",
-    icon: "3",
+    iconSrc: "/Icons/upgrade.png",
   },
   {
-    title: "Stay future-ready",
+    titlePrefix: "Engineer your",
+    highlight: "growth",
     description: "Measure performance, iterate in short cycles, and keep momentum with ongoing guidance.",
-    icon: "4",
+    iconSrc: "/Icons/Engineer.png",
   },
 ];
 
