@@ -35,7 +35,11 @@ export default function Home() {
                 </span>
                 <div>
                   <h3 className="font-medium text-white">
-                    {service.titlePrefix} <span className="text-[#B4FF00]">{service.highlight}</span>
+                    {service.titlePrefix}{" "}
+                    <AnimatedNeonText
+                      text={service.highlight}
+                      className="items-baseline gap-[0.04em] text-[#B4FF00] animate-pulse md:text-white md:animate-none"
+                    />
                   </h3>
                   <p className="mt-2 text-sm text-white/70">{service.description}</p>
                 </div>
@@ -50,7 +54,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 py-24 md:py-28 space-y-12">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
             <div className="space-y-5">
-              <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-xs font-medium uppercase tracking-wide">
+              <span className="inline-flex items-center rounded-2xl border border-[#1C1D1B]/70 px-4 py-2 text-xs font-medium uppercase tracking-wide text-[#1C1D1B]">
                 How it works
               </span>
               <h2
@@ -59,21 +63,9 @@ export default function Home() {
               >
                 How we help improve your business
               </h2>
-              <p className="max-w-xl text-base text-gray-600 sm:text-lg">
+              <p className="max-w-xl text-base text-[#2A2B28] sm:text-lg">
                 We partner with your team to remove the guesswork, install repeatable systems, and keep everything moving without adding overhead.
               </p>
-            </div>
-
-            <div className="flex items-center gap-3 text-sm text-gray-500">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-base text-[#1C1D1B]">
-                ←
-              </span>
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-900 bg-gray-900 text-base text-white">
-                →
-              </span>
-              <span className="ml-4 hidden text-gray-500 sm:block">
-                Swipe to explore our approach.
-              </span>
             </div>
           </div>
 
@@ -81,22 +73,27 @@ export default function Home() {
             {helpSteps.map((step, index) => (
               <article
                 key={step.title}
-                className="group relative flex min-h-[260px] flex-col justify-between overflow-hidden rounded-3xl border border-gray-200 bg-black/5 p-8 text-gray-900 transition-transform transition-colors transition-shadow hover:-translate-y-1 hover:border-gray-900 hover:bg-gray-900 hover:text-white hover:shadow-xl"
+                className="group flex min-h-[220px] flex-col justify-between gap-6 rounded-[28px] bg-black/30 p-6 text-white backdrop-blur-md transition-transform hover:-translate-y-1"
               >
-                <div className="space-y-4">
-                  <span className="text-xs font-medium uppercase tracking-wide text-gray-500 transition-colors group-hover:text-white/70">
-                    Step {index + 1}
+                <div className="flex items-start gap-4">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-black/40 text-sm font-semibold uppercase tracking-wide text-[#B4FF00]">
+                    {index + 1}
                   </span>
-                  <h3 className="text-2xl font-semibold leading-tight transition-colors group-hover:text-white">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 transition-colors group-hover:text-white/80">
-                    {step.description}
-                  </p>
+                  <div className="space-y-3">
+                    <span className="text-xs font-medium uppercase tracking-wide text-white/60">
+                      Step {index + 1}
+                    </span>
+                    <h3 className="text-2xl font-semibold leading-tight text-white">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-white/80">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
                 <span
                   aria-hidden
-                  className="mt-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-base text-gray-900 transition-colors transition-transform group-hover:border-white/60 group-hover:bg-white/10 group-hover:text-white group-hover:translate-x-1"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-base text-white/80 transition-all group-hover:border-white/40 group-hover:bg-white/10 group-hover:text-white group-hover:translate-x-1 self-end"
                 >
                   →
                 </span>
@@ -112,18 +109,18 @@ export default function Home() {
       {/* Free call CTA */}
       <section aria-labelledby="call-heading" className="w-full text-[#1C1D1B]">
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 text-center space-y-6">
-          <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-xs font-medium uppercase tracking-wide">
+          <span className="inline-flex items-center rounded-2xl border border-[#1C1D1B]/70 px-4 py-2 text-xs font-medium uppercase tracking-wide text-[#1C1D1B]">
             Free Call
           </span>
           <h2 id="call-heading" className="text-3xl font-semibold sm:text-4xl">
             Book a 30-minute strategy call with our team.
           </h2>
-          <p className="mx-auto max-w-2xl text-gray-600">
+          <p className="mx-auto max-w-2xl text-[#2A2B28]">
             Share your goals, ask questions, and leave with a clear plan for what comes next—no strings attached.
           </p>
           <Link
             href="/contact"
-            className="group inline-flex items-center justify-center rounded-2xl bg-black/30 px-6 py-3 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-black/40 focus-visible:bg-black/40 focus-visible:outline-none"
+            className="group inline-flex items-center justify-center rounded-2xl border border-[#1C1D1B]/20 px-4 py-2 text-sm font-medium text-[#1C1D1B] transition-colors hover:border-[#B4FF00] focus-visible:outline-none"
           >
             <AnimatedNeonText text="Schedule your free call" className="gap-[0.08em]" />
           </Link>
@@ -134,13 +131,13 @@ export default function Home() {
       <section aria-labelledby="faq-heading" className="w-full text-[#1C1D1B]">
         <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 py-24 md:py-28 lg:flex-row lg:items-center lg:justify-between">
           <div className="w-full max-w-xl space-y-6">
-            <span className="inline-flex items-center rounded-full border border-[#1C1D1B]/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-[#1C1D1B]">
+            <span className="inline-flex items-center rounded-2xl border border-[#1C1D1B]/70 px-4 py-2 text-xs font-medium uppercase tracking-wide text-[#1C1D1B]">
               FAQ
             </span>
             <h2 id="faq-heading" className="text-3xl font-semibold sm:text-4xl">
               Frequently asked questions
             </h2>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-[#2A2B28]">
               Answers to the most common questions about working with Vokal.
             </p>
             <Link

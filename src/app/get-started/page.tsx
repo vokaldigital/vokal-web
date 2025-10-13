@@ -5,7 +5,7 @@ export default function Page() {
     <main className="min-h-dvh">
       <section className="mx-auto max-w-4xl px-4 py-16">
         <h1 className="text-3xl font-medium">Create your account</h1>
-        <p className="mt-4 text-gray-600">
+        <p className="mt-4 text-[#2A2B28]">
           Fill out this quick registration form to start your onboarding. Replace the placeholder handler with your preferred auth flow.
         </p>
 

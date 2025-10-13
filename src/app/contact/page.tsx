@@ -5,7 +5,7 @@ export default function Page() {
     <main className="min-h-dvh">
       <section className="mx-auto max-w-4xl px-4 py-16">
         <h1 className="text-3xl font-medium">Contact us</h1>
-        <p className="mt-4 text-gray-600">
+        <p className="mt-4 text-[#2A2B28]">
           Reach out with a quick note and we will get back to you within one business day.
         </p>
 

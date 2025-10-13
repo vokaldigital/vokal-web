@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="flex h-full flex-col gap-6 text-sm text-gray-700">
             <div className="space-y-3">
               <Image src="/vokal-logo.svg" alt="Vokal Digital" width={150} height={36} priority />
-              <p className="max-w-xs text-sm text-gray-600">
+              <p className="max-w-xs text-sm text-[#2A2B28]">
                 Fractional digital team for growth-focused founders—strategy, design, and go-to-market under one roof.
               </p>
             </div>
@@ -23,7 +23,7 @@ export default function Footer() {
             action="/contact"
             className="w-full rounded-2xl border border-[#1C1D1B]/15 bg-transparent p-6"
           >
-            <p className="text-xs font-medium uppercase tracking-wide text-gray-600">Work with us</p>
+            <p className="text-xs font-medium uppercase tracking-wide text-[#2A2B28]">Work with us</p>
             <p className="mt-3 text-lg font-semibold text-[#1C1D1B]">
               Start with a free, thirty minute growth mapping call.
             </p>
