@@ -7,11 +7,17 @@ export default function Home() {
   return (
     <main className="min-h-dvh">
       <section className="min-h-[80svh] grid place-items-center px-6 pb-24 pt-12 text-white md:pb-32">
-        <div className="w-full max-w-3xl space-y-4 text-left">
+        <div className="w-full max-w-3xl space-y-6 text-left">
           <h1 className="text-3xl font-medium text-white sm:text-4xl">
             Get <span className="inline-flex text-white"><ScrollNeonText text="Loud." /></span>
           </h1>
           <p className="text-white/80">Your brand. Amplified by AI.</p>
+          <Link
+            href="/get-started"
+            className="inline-flex w-fit items-center justify-center rounded-2xl bg-[#B4FF00] px-4 py-2 text-sm font-medium text-black/80 transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60"
+          >
+            Get started
+          </Link>
         </div>
       </section>
 
@@ -69,11 +75,26 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="mt-6 flex items-center justify-between md:hidden">
+            <span className="text-xs font-medium uppercase tracking-wide text-white/70">
+              Swipe to view
+            </span>
+            <span
+              aria-hidden
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-base text-white/80"
+            >
+              →
+            </span>
+          </div>
+
+          <div
+            className="flex gap-5 overflow-x-auto px-4 pb-6 snap-x snap-mandatory scroll-smooth scrollbar-hide [-webkit-overflow-scrolling:touch] md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:snap-none"
+            style={{ scrollPaddingInline: "1.5rem" }}
+          >
             {helpSteps.map((step, index) => (
               <article
                 key={step.title}
-                className="group flex min-h-[220px] flex-col justify-between gap-6 rounded-[28px] bg-black/30 p-6 text-white backdrop-blur-md transition-transform hover:-translate-y-1"
+                className="group flex min-h-[220px] min-w-[min(22rem,calc(100vw-4rem))] max-w-[min(22rem,calc(100vw-4rem))] shrink-0 snap-center snap-always flex-col justify-between gap-6 rounded-[28px] bg-black/30 p-6 text-white backdrop-blur-md transition-transform md:translate-y-2 md:hover:translate-y-0 md:min-w-0 md:max-w-none md:shrink md:snap-normal"
               >
                 <div className="flex items-start gap-4">
                   <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-black/40 text-sm font-semibold uppercase tracking-wide text-[#B4FF00]">

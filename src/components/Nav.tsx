@@ -36,7 +36,7 @@ export default function Nav() {
                 </Link>
                 <Link
                   href="/get-started"
-                  className="rounded-2xl bg-white px-4 py-2 text-[#1C1D1B]/70 transition-colors hover:bg-white/90 hover:text-[#1C1D1B]"
+                  className="rounded-2xl bg-[#B4FF00] px-4 py-2 text-black/80 transition-opacity hover:opacity-90"
                 >
                   Get started
                 </Link>
