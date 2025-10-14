@@ -11,7 +11,7 @@ export default function Nav() {
     <nav className="fixed inset-x-0 top-6 z-[70] px-5 sm:px-6 md:top-8">
       <div className="mx-auto max-w-5xl">
         <div className="relative">
-          <div className="relative z-[80] flex items-center justify-between rounded-2xl bg-black/30 px-5 py-3 backdrop-blur sm:px-6">
+          <div className="relative z-[80] flex items-center justify-between rounded-2xl bg-black/30 px-5 py-2.5 backdrop-blur sm:px-6">
             <Link href="/" className="flex items-center" aria-label="Vokal home">
               <Image src="/vokal-logo.svg" alt="Vokal" width={120} height={28} priority className="brightness-0 invert" />
             </Link>
@@ -36,7 +36,7 @@ export default function Nav() {
                 </Link>
                 <Link
                   href="/get-started"
-                  className="rounded-2xl bg-[#B4FF00] px-4 py-2 text-black/80 transition-opacity hover:opacity-90"
+                  className="rounded-2xl bg-[#B4FF00] px-4 py-2 text-[#1C1D1B]/70 transition-colors hover:bg-[#B4FF00]/90 hover:text-[#1C1D1B]"
                 >
                   Get started
                 </Link>

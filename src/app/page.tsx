@@ -7,14 +7,14 @@ export default function Home() {
   return (
     <main className="min-h-dvh">
       <section className="min-h-[80svh] grid place-items-center px-6 pb-24 pt-12 text-white md:pb-32">
-        <div className="w-full max-w-3xl space-y-6 text-left">
+        <div className="w-full max-w-3xl space-y-4 text-left">
           <h1 className="text-3xl font-medium text-white sm:text-4xl">
             Get <span className="inline-flex text-white"><ScrollNeonText text="Loud." /></span>
           </h1>
           <p className="text-white/80">Your brand. Amplified by AI.</p>
           <Link
             href="/get-started"
-            className="inline-flex w-fit items-center justify-center rounded-2xl bg-[#B4FF00] px-4 py-2 text-sm font-medium text-black/80 transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60"
+            className="inline-flex w-fit items-center justify-center rounded-2xl bg-[#B4FF00] px-4 py-2 text-sm font-medium text-[#1C1D1B]/70 transition-colors hover:bg-[#B4FF00]/90 hover:text-[#1C1D1B] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60"
           >
             Get started
           </Link>
