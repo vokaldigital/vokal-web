@@ -43,14 +43,13 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="group inline-flex h-11 w-full items-center justify-center gap-3 rounded-2xl border border-[#B4FF00] bg-transparent px-4 text-sm font-medium text-[#B4FF00] transition-colors hover:bg-[#B4FF00] hover:text-[#1C1D1B] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60 sm:w-auto"
+                className="group inline-flex h-11 w-full items-center justify-center gap-3 rounded-2xl border border-transparent bg-[#B4FF00]/90 px-4 text-sm font-medium text-[#1C1D1B]/80 backdrop-blur-[5px] transition-all hover:border-[#B4FF00] hover:bg-[#B4FF00]/20 hover:text-[#B4FF00] hover:backdrop-blur-[14px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60 sm:w-auto"
               >
-                <AnimatedNeonText
-                  text="Let’s talk"
-                  className="gap-[0.06em] text-[#B4FF00]"
-                  hoverClassName="group-hover:text-[#1C1D1B] group-focus-visible:text-[#1C1D1B]"
-                />
-                <span aria-hidden className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#B4FF00]/70 text-[#B4FF00] transition-all group-hover:translate-x-1 group-hover:border-[#1C1D1B] group-hover:bg-[#B4FF00] group-hover:text-[#1C1D1B] group-focus-visible:translate-x-1 group-focus-visible:border-[#1C1D1B] group-focus-visible:bg-[#B4FF00] group-focus-visible:text-[#1C1D1B]">
+                Let’s talk
+                <span
+                  aria-hidden
+                  className="inline-flex items-center justify-center text-inherit transition-transform duration-200 group-hover:translate-x-1 group-focus-visible:translate-x-1"
+                >
                   →
                 </span>
               </button>

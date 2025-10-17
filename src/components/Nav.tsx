@@ -2,10 +2,46 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Nav() {
-  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuClosing, setMenuClosing] = useState(false);
+  const closeTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimeout.current) {
+        clearTimeout(closeTimeout.current);
+      }
+    };
+  }, []);
+
+  const openMenu = () => {
+    if (closeTimeout.current) {
+      clearTimeout(closeTimeout.current);
+      closeTimeout.current = null;
+    }
+    setMenuClosing(false);
+    setMenuOpen(true);
+  };
+
+  const closeMenu = () => {
+    setMenuClosing(true);
+    closeTimeout.current = setTimeout(() => {
+      setMenuOpen(false);
+      setMenuClosing(false);
+      closeTimeout.current = null;
+    }, 200);
+  };
+
+  const toggleMenu = () => {
+    if (menuOpen && !menuClosing) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  };
 
   return (
     <nav className="fixed inset-x-0 top-6 z-[70] px-5 sm:px-6 md:top-8">
@@ -46,61 +82,65 @@ export default function Nav() {
             {/* Mobile burger */}
             <button
               type="button"
-              aria-label={open ? "Close navigation" : "Open navigation"}
-              aria-expanded={open}
-              onClick={() => setOpen((v) => !v)}
+              aria-label={menuOpen && !menuClosing ? "Close navigation" : "Open navigation"}
+              aria-expanded={menuOpen && !menuClosing}
+              onClick={toggleMenu}
               className="md:hidden relative inline-flex h-10 w-10 items-center justify-center"
             >
-              <span className="sr-only">{open ? "Close navigation" : "Open navigation"}</span>
+              <span className="sr-only">{menuOpen && !menuClosing ? "Close navigation" : "Open navigation"}</span>
               <span
                 className={`absolute h-0.5 w-6 rounded bg-white transition-transform duration-200 ${
-                  open ? "rotate-45" : "-translate-y-[6px]"
+                  menuOpen && !menuClosing ? "rotate-45" : "-translate-y-[6px]"
                 }`}
               />
               <span
                 className={`absolute h-0.5 w-6 rounded bg-white transition-transform duration-200 ${
-                  open ? "-rotate-45" : "translate-y-[6px]"
+                  menuOpen && !menuClosing ? "-rotate-45" : "translate-y-[6px]"
                 }`}
               />
             </button>
           </div>
 
           {/* Mobile menu */}
-          {open && (
-            <div className="fixed inset-0 z-[40] flex flex-col px-4 pb-6 pt-[1.2rem] sm:px-5">
-              <div className="flex flex-1 rounded-2xl bg-black/30 backdrop-blur-[44px] motion-safe:animate-[menuFade_200ms_ease-out_forwards]">
+          {(menuOpen || menuClosing) && (
+            <div
+              className={`fixed inset-0 z-[40] flex flex-col px-4 pb-6 pt-[1.2rem] transition-opacity duration-200 ease-out sm:px-5 ${
+                menuClosing ? "pointer-events-none opacity-0" : "pointer-events-auto opacity-100"
+              }`}
+            >
+              <div className={`flex flex-1 rounded-2xl bg-black/30 backdrop-blur-[44px] ${menuClosing ? "" : "motion-safe:animate-[menuFade_200ms_ease-out_forwards]"}`}>
                 <div className="flex w-full flex-col items-center justify-center gap-9 px-6 text-center text-2xl font-medium text-white">
                   <Link
                     href="/services"
-                    onClick={() => setOpen(false)}
+                    onClick={closeMenu}
                     className="transition hover:text-[#B4FF00] focus-visible:text-[#B4FF00]"
                   >
                     Services
                   </Link>
                   <Link
                     href="/approach"
-                    onClick={() => setOpen(false)}
+                    onClick={closeMenu}
                     className="transition hover:text-[#B4FF00] focus-visible:text-[#B4FF00]"
                   >
                     Approach
                   </Link>
                   <Link
                     href="/about"
-                    onClick={() => setOpen(false)}
+                    onClick={closeMenu}
                     className="transition hover:text-[#B4FF00] focus-visible:text-[#B4FF00]"
                   >
                     About
                   </Link>
                   <Link
                     href="/login"
-                    onClick={() => setOpen(false)}
+                    onClick={closeMenu}
                     className="transition hover:text-[#B4FF00] focus-visible:text-[#B4FF00]"
                   >
                     Log in
                   </Link>
                   <Link
                     href="/get-started"
-                    onClick={() => setOpen(false)}
+                    onClick={closeMenu}
                     className="rounded-2xl border border-transparent bg-[#B4FF00]/90 px-6 py-2 text-lg text-[#1C1D1B]/80 backdrop-blur-[5px] transition-all hover:border-[#B4FF00] hover:bg-[#B4FF00]/20 hover:text-[#B4FF00] hover:backdrop-blur-[14px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60"
                   >
                     Get started

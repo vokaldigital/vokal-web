@@ -25,6 +25,18 @@ export default function Home() {
       {/* Services segment */}
       <section aria-labelledby="services-heading" className="w-full text-white">
         <div className="mx-auto max-w-6xl px-4 py-24 md:py-28 space-y-10">
+          <div className="space-y-3 text-center text-white">
+            <span className="inline-flex items-center justify-center rounded-2xl border border-white/40 px-4 py-2 text-xs font-medium uppercase tracking-wide text-white/80 backdrop-blur-sm">
+              Services we deliver
+            </span>
+            <h2 className="text-3xl font-semibold drop-shadow-[0_4px_12px_rgba(0,0,0,0.45)] sm:text-4xl">
+              All the tools you need to grow louder
+            </h2>
+            <p className="mx-auto max-w-2xl text-sm text-white/80 drop-shadow-[0_3px_10px_rgba(0,0,0,0.45)] sm:text-base">
+              Strategy, storytelling, and automation built for teams that want momentum without the extra headcount.
+            </p>
+          </div>
+
           <div className="grid gap-8 md:grid-cols-2">
             {services.map((service) => (
               <div
@@ -45,7 +57,7 @@ export default function Home() {
                     {service.titlePrefix}{" "}
                     <AnimatedNeonText
                       text={service.highlight}
-                      className="items-baseline gap-[0.04em] text-[#B4FF00] animate-pulse md:text-white md:animate-none"
+                      className="items-baseline gap-[0.04em] text-[#B4FF00] md:text-white"
                     />
                   </h3>
                   <p className="mt-2 text-sm text-white/70">{service.description}</p>
@@ -146,17 +158,17 @@ export default function Home() {
           >
             <span
               aria-hidden
-              className="pointer-events-none absolute inset-0 rounded-2xl bg-black/35 opacity-0 transition-opacity group-hover:opacity-75 group-focus-visible:opacity-75"
+              className="pointer-events-none absolute inset-0 rounded-2xl bg-black/25 opacity-0 transition-opacity group-hover:opacity-80 group-focus-visible:opacity-80"
             />
-            <AnimatedNeonText text="Schedule your free call" className="gap-[0.08em]" />
+            <span className="relative z-10">Schedule your free call</span>
           </Link>
         </div>
       </section>
 
       {/* FAQ */}
       <section aria-labelledby="faq-heading" className="w-full text-[#1C1D1B]">
-        <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 py-24 md:py-28 lg:flex-row lg:items-center lg:justify-between">
-          <div className="w-full max-w-xl space-y-6">
+        <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 py-24 md:py-28 lg:flex-row lg:items-start lg:justify-between">
+          <div className="w-full max-w-xl space-y-6 lg:self-start">
             <span className="inline-flex items-center rounded-2xl border border-[#1C1D1B]/70 px-4 py-2 text-xs font-medium uppercase tracking-wide text-[#1C1D1B]">
               FAQ
             </span>
@@ -172,9 +184,9 @@ export default function Home() {
             >
               <span
                 aria-hidden
-                className="pointer-events-none absolute inset-0 rounded-2xl bg-black/35 opacity-0 transition-opacity group-hover:opacity-75 group-focus-visible:opacity-75"
+                className="pointer-events-none absolute inset-0 rounded-2xl bg-black/25 opacity-0 transition-opacity group-hover:opacity-80 group-focus-visible:opacity-80"
               />
-              <AnimatedNeonText text="Contact us" className="gap-[0.08em]" />
+              <span className="relative z-10">Contact us</span>
             </Link>
           </div>
 
