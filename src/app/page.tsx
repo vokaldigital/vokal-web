@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatedNeonText } from "@/components/AnimatedNeonText";
 import { ScrollNeonText } from "@/components/ScrollNeonText";
+import { FAQCard } from "@/components/FAQCard";
 
 export default function Home() {
   return (
@@ -141,8 +142,12 @@ export default function Home() {
           </p>
           <Link
             href="/contact"
-            className="group inline-flex w-fit items-center justify-center rounded-2xl border border-transparent bg-[#B4FF00]/90 px-4 py-2 text-sm font-medium text-[#1C1D1B]/80 backdrop-blur-[5px] transition-all hover:border-[#B4FF00] hover:bg-[#B4FF00]/20 hover:text-[#B4FF00] hover:backdrop-blur-[14px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60 before:pointer-events-none before:absolute before:inset-0 before:rounded-2xl before:bg-black/10 before:opacity-0 before:transition-opacity hover:before:opacity-40"
+            className="group relative inline-flex w-fit items-center justify-center overflow-hidden rounded-2xl border border-transparent bg-[#B4FF00]/90 px-4 py-2 text-sm font-medium text-[#1C1D1B]/80 backdrop-blur-[5px] transition-all hover:border-[#B4FF00] hover:bg-[#B4FF00]/20 hover:text-[#B4FF00] hover:backdrop-blur-[14px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60"
           >
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-0 rounded-2xl bg-black/35 opacity-0 transition-opacity group-hover:opacity-75 group-focus-visible:opacity-75"
+            />
             <AnimatedNeonText text="Schedule your free call" className="gap-[0.08em]" />
           </Link>
         </div>
@@ -163,40 +168,19 @@ export default function Home() {
             </p>
             <Link
               href="/contact"
-              className="group inline-flex w-fit items-center justify-center rounded-2xl border border-transparent bg-[#B4FF00]/90 px-4 py-2 text-sm font-medium text-[#1C1D1B]/80 backdrop-blur-[5px] transition-all hover:border-[#B4FF00] hover:bg-[#B4FF00]/20 hover:text-[#B4FF00] hover:backdrop-blur-[14px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60 before:pointer-events-none before:absolute before:inset-0 before:rounded-2xl before:bg-black/10 before:opacity-0 before:transition-opacity hover:before:opacity-40"
+              className="group relative inline-flex w-fit items-center justify-center overflow-hidden rounded-2xl border border-transparent bg-[#B4FF00]/90 px-4 py-2 text-sm font-medium text-[#1C1D1B]/80 backdrop-blur-[5px] transition-all hover:border-[#B4FF00] hover:bg-[#B4FF00]/20 hover:text-[#B4FF00] hover:backdrop-blur-[14px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60"
             >
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-0 rounded-2xl bg-black/35 opacity-0 transition-opacity group-hover:opacity-75 group-focus-visible:opacity-75"
+              />
               <AnimatedNeonText text="Contact us" className="gap-[0.08em]" />
             </Link>
           </div>
 
           <div className="w-full max-w-2xl space-y-4">
             {faqItems.map((item) => (
-              <div
-                key={item.question}
-                tabIndex={0}
-                className="group rounded-[28px] border border-white/10 bg-black/30 p-6 text-white backdrop-blur-[14px] transition-colors hover:border-white/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60"
-              >
-                <div className="flex items-center justify-between text-lg font-medium text-white">
-                  <span>{item.question}</span>
-                  <span className="ml-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/80 transition-all duration-300 group-hover:rotate-180 group-hover:border-white/40 group-hover:bg-white/10 group-hover:text-white group-focus-visible:rotate-180">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      className="h-5 w-5"
-                    >
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                  </span>
-                </div>
-                <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-hover:grid-rows-[1fr] group-focus-visible:grid-rows-[1fr]">
-                  <div className="overflow-hidden">
-                    <p className="mt-3 text-sm text-white/75">{item.answer}</p>
-                  </div>
-                </div>
-              </div>
+              <FAQCard key={item.question} question={item.question} answer={item.answer} />
             ))}
           </div>
         </div>
