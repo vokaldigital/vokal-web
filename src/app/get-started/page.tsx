@@ -69,7 +69,7 @@ export default function Page() {
 
           <button
             type="submit"
-            className="group inline-flex items-center justify-center rounded-2xl bg-black/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-black/20 focus-visible:bg-black/20 focus-visible:outline-none"
+            className="group inline-flex items-center justify-center rounded-2xl bg-black/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-[9px] transition-colors hover:bg-black/20 focus-visible:bg-black/20 focus-visible:outline-none"
           >
             <AnimatedNeonText text="Create account" className="gap-[0.06em]" />
           </button>

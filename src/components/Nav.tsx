@@ -11,7 +11,7 @@ export default function Nav() {
     <nav className="fixed inset-x-0 top-6 z-[70] px-5 sm:px-6 md:top-8">
       <div className="mx-auto max-w-5xl">
         <div className="relative">
-          <div className="relative z-[80] flex items-center justify-between rounded-2xl bg-black/30 px-5 py-2.5 backdrop-blur sm:px-6">
+          <div className="relative z-[80] flex items-center justify-between rounded-2xl bg-black/30 px-5 py-2.5 backdrop-blur-[9px] sm:px-6">
             <Link href="/" className="flex items-center" aria-label="Vokal home">
               <Image src="/vokal-logo.svg" alt="Vokal" width={120} height={28} priority className="brightness-0 invert" />
             </Link>
@@ -36,7 +36,7 @@ export default function Nav() {
                 </Link>
                 <Link
                   href="/get-started"
-                  className="rounded-2xl bg-[#B4FF00] px-4 py-2 text-[#1C1D1B]/70 transition-colors hover:bg-[#B4FF00]/90 hover:text-[#1C1D1B]"
+                  className="rounded-2xl border border-transparent bg-[#B4FF00]/90 px-4 py-2 text-[#1C1D1B]/80 backdrop-blur-[5px] transition-all hover:border-[#B4FF00] hover:bg-[#B4FF00]/20 hover:text-[#B4FF00] hover:backdrop-blur-[14px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60"
                 >
                   Get started
                 </Link>
@@ -68,7 +68,7 @@ export default function Nav() {
           {/* Mobile menu */}
           {open && (
             <div className="fixed inset-0 z-[40] flex flex-col px-4 pb-6 pt-[1.2rem] sm:px-5">
-              <div className="flex flex-1 rounded-2xl bg-black/30 backdrop-blur-2xl motion-safe:animate-[menuFade_200ms_ease-out_forwards]">
+              <div className="flex flex-1 rounded-2xl bg-black/30 backdrop-blur-[44px] motion-safe:animate-[menuFade_200ms_ease-out_forwards]">
                 <div className="flex w-full flex-col items-center justify-center gap-9 px-6 text-center text-2xl font-medium text-white">
                   <Link
                     href="/services"
@@ -101,7 +101,7 @@ export default function Nav() {
                   <Link
                     href="/get-started"
                     onClick={() => setOpen(false)}
-                    className="rounded-2xl bg-white px-6 py-2 text-lg text-[#1C1D1B]/70 transition hover:bg-white/90 hover:text-[#1C1D1B]"
+                    className="rounded-2xl border border-transparent bg-[#B4FF00]/90 px-6 py-2 text-lg text-[#1C1D1B]/80 backdrop-blur-[5px] transition-all hover:border-[#B4FF00] hover:bg-[#B4FF00]/20 hover:text-[#B4FF00] hover:backdrop-blur-[14px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60"
                   >
                     Get started
                   </Link>

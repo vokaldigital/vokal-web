@@ -21,10 +21,10 @@ export default function Footer() {
           {/* Right: call-to-action panel */}
           <form
             action="/contact"
-            className="w-full rounded-2xl border border-[#1C1D1B]/15 bg-transparent p-6"
+            className="w-full rounded-[28px] border border-white/10 bg-black/30 p-8 text-white backdrop-blur-[14px] sm:p-10"
           >
-            <p className="text-xs font-medium uppercase tracking-wide text-[#2A2B28]">Work with us</p>
-            <p className="mt-3 text-lg font-semibold text-[#1C1D1B]">
+            <p className="text-xs font-medium uppercase tracking-wide text-white/70">Work with us</p>
+            <p className="mt-3 text-lg font-semibold text-white">
               Start with a free, thirty minute growth mapping call.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -39,14 +39,18 @@ export default function Footer() {
                 aria-label="Your email"
                 autoComplete="email"
                 required
-                className="h-11 w-full flex-1 rounded-full border border-[#1C1D1B]/15 bg-transparent px-4 text-sm text-[#1C1D1B] placeholder-gray-400 focus:border-[#1C1D1B] focus:outline-none focus:ring-2 focus:ring-[#1C1D1B]/10"
+                className="h-11 w-full flex-1 rounded-full border border-white/20 bg-white/5 px-4 text-sm text-white placeholder-white/50 transition focus:border-[#B4FF00] focus:outline-none focus:ring-2 focus:ring-[#B4FF00]/20"
               />
               <button
                 type="submit"
-                className="group inline-flex h-11 w-full items-center justify-center gap-3 rounded-2xl border border-[#1C1D1B]/20 bg-transparent px-4 text-sm font-medium text-[#1C1D1B] transition-colors hover:border-[#B4FF00] focus-visible:outline-none sm:w-auto"
+                className="group inline-flex h-11 w-full items-center justify-center gap-3 rounded-2xl border border-[#B4FF00] bg-transparent px-4 text-sm font-medium text-[#B4FF00] transition-colors hover:bg-[#B4FF00] hover:text-[#1C1D1B] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60 sm:w-auto"
               >
-                <AnimatedNeonText text="Let’s talk" className="gap-[0.06em]" />
-                <span aria-hidden className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white text-[#1C1D1B] transition-colors group-hover:bg-[#B4FF00] group-hover:text-[#1C1D1B] group-focus-visible:bg-[#B4FF00] group-focus-visible:text-[#1C1D1B]">
+                <AnimatedNeonText
+                  text="Let’s talk"
+                  className="gap-[0.06em] text-[#B4FF00]"
+                  hoverClassName="group-hover:text-[#1C1D1B] group-focus-visible:text-[#1C1D1B]"
+                />
+                <span aria-hidden className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#B4FF00]/70 text-[#B4FF00] transition-all group-hover:translate-x-1 group-hover:border-[#1C1D1B] group-hover:bg-[#B4FF00] group-hover:text-[#1C1D1B] group-focus-visible:translate-x-1 group-focus-visible:border-[#1C1D1B] group-focus-visible:bg-[#B4FF00] group-focus-visible:text-[#1C1D1B]">
                   →
                 </span>
               </button>
