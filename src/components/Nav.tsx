@@ -66,13 +66,13 @@ export default function Nav() {
               <div className="flex items-center gap-3 pl-6">
                 <Link
                   href="/login"
-                  className="rounded-2xl border border-white/70 px-4 py-2 text-white transition-colors hover:border-white hover:bg-white/10"
+                  className="inline-flex justify-center rounded-2xl border border-white/80 px-5 py-2 text-white transition-colors hover:border-white hover:bg-white/10"
                 >
                   Log in
                 </Link>
                 <Link
                   href="/get-started"
-                  className="rounded-2xl border border-transparent bg-[#B4FF00]/90 px-4 py-2 text-[#1C1D1B]/80 backdrop-blur-[5px] transition-all hover:border-[#B4FF00] hover:bg-[#B4FF00]/20 hover:text-[#B4FF00] hover:backdrop-blur-[14px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60"
+                  className="inline-flex min-w-[140px] justify-center rounded-2xl border border-transparent bg-[#B4FF00]/90 px-6 py-2 text-[#1C1D1B]/80 backdrop-blur-[5px] transition-all hover:border-[#B4FF00] hover:bg-[#B4FF00]/20 hover:text-[#B4FF00] hover:backdrop-blur-[14px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60"
                 >
                   Get started
                 </Link>
@@ -134,14 +134,14 @@ export default function Nav() {
                   <Link
                     href="/login"
                     onClick={closeMenu}
-                    className="transition hover:text-[#B4FF00] focus-visible:text-[#B4FF00]"
+                    className="inline-flex min-w-[160px] justify-center rounded-2xl border border-white/80 px-6 py-2 text-white transition-colors hover:border-white hover:bg-white/10"
                   >
                     Log in
                   </Link>
                   <Link
                     href="/get-started"
                     onClick={closeMenu}
-                    className="rounded-2xl border border-transparent bg-[#B4FF00]/90 px-6 py-2 text-lg text-[#1C1D1B]/80 backdrop-blur-[5px] transition-all hover:border-[#B4FF00] hover:bg-[#B4FF00]/20 hover:text-[#B4FF00] hover:backdrop-blur-[14px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60"
+                    className="inline-flex min-w-[160px] justify-center rounded-2xl border border-transparent bg-[#B4FF00]/90 px-6 py-2 text-lg text-[#1C1D1B]/80 backdrop-blur-[5px] transition-all hover:border-[#B4FF00] hover:bg-[#B4FF00]/20 hover:text-[#B4FF00] hover:backdrop-blur-[14px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60"
                   >
                     Get started
                   </Link>
