@@ -25,16 +25,13 @@ export default function Home() {
       {/* Services segment */}
       <section aria-labelledby="services-heading" className="w-full text-white">
         <div className="mx-auto max-w-6xl px-4 py-24 md:py-28 space-y-10">
-          <div className="space-y-3 text-center text-white">
+          <div className="space-y-3 text-left text-white">
             <span className="inline-flex items-center justify-center rounded-2xl border border-white/40 px-4 py-2 text-xs font-medium uppercase tracking-wide text-white/80 backdrop-blur-sm">
               Services we deliver
             </span>
-            <h2 className="text-3xl font-semibold drop-shadow-[0_4px_12px_rgba(0,0,0,0.45)] sm:text-4xl">
-              All the tools you need to grow louder
+            <h2 className="text-3xl font-semibold drop-shadow-[0_8px_24px_rgba(0,0,0,0.7)] sm:text-4xl">
+              All the tools you need to grow louder.
             </h2>
-            <p className="mx-auto max-w-2xl text-sm text-white/80 drop-shadow-[0_3px_10px_rgba(0,0,0,0.45)] sm:text-base">
-              Strategy, storytelling, and automation built for teams that want momentum without the extra headcount.
-            </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2">
@@ -110,12 +107,12 @@ export default function Home() {
                 className="group flex min-h-[220px] min-w-[min(22rem,calc(100vw-4rem))] max-w-[min(22rem,calc(100vw-4rem))] shrink-0 snap-center snap-always flex-col justify-between gap-6 rounded-[28px] bg-black/30 p-6 text-white backdrop-blur-[14px] transition-transform md:translate-y-2 md:hover:translate-y-0 md:min-w-0 md:max-w-none md:shrink md:snap-normal"
               >
                 <div className="flex items-start gap-4">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-black/40 text-sm font-semibold uppercase tracking-wide text-[#B4FF00]">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#B4FF00]/50 bg-[#B4FF00]/10 text-lg font-semibold leading-none text-[#B4FF00]">
                     {index + 1}
                   </span>
                   <div className="space-y-3">
                     <span className="text-xs font-medium uppercase tracking-wide text-white/60">
-                      Step {index + 1}
+                      {step.summary}
                     </span>
                     <h3 className="text-2xl font-semibold leading-tight text-white">
                       {step.title}
@@ -204,14 +201,17 @@ export default function Home() {
 
 const helpSteps = [
   {
+    summary: "Discover",
     title: "Clarify objectives",
     description: "We start with a quick audit to understand your goals, customers, and current momentum.",
   },
   {
+    summary: "Plan",
     title: "Design the roadmap",
     description: "Together we shape a focused plan, assign ownership, and set the milestones that matter most.",
   },
   {
+    summary: "Iterate",
     title: "Launch and iterate",
     description: "Our team partners with yours to execute, measure impact, and keep improvements rolling every week.",
   },
