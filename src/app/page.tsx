@@ -23,13 +23,13 @@ export default function Home() {
       </section>
 
       {/* Services segment */}
-      <section aria-labelledby="services-heading" className="w-full text-white">
+      <section aria-labelledby="services-heading" className="w-full text-[#1C1D1B]">
         <div className="mx-auto max-w-6xl px-4 py-24 md:py-28 space-y-10">
-          <div className="space-y-3 text-left text-white">
-            <span className="inline-flex items-center justify-center rounded-2xl border border-white/40 px-4 py-2 text-xs font-medium uppercase tracking-wide text-white/80 backdrop-blur-sm">
+          <div className="space-y-3 text-left text-[#1C1D1B]">
+            <span className="inline-flex items-center justify-center rounded-2xl border border-[#1C1D1B]/40 px-4 py-2 text-xs font-medium uppercase tracking-wide text-[#1C1D1B]/80 backdrop-blur-sm">
               Services we deliver
             </span>
-            <h2 className="text-3xl font-semibold drop-shadow-[0_8px_24px_rgba(0,0,0,0.7)] sm:text-4xl">
+            <h2 className="text-3xl font-semibold text-[#1C1D1B] drop-shadow-[0_8px_24px_rgba(0,0,0,0.7)] sm:text-4xl">
               All the tools you need to grow louder.
             </h2>
           </div>
