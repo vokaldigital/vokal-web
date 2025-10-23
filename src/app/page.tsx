@@ -7,7 +7,7 @@ import { FAQCard } from "@/components/FAQCard";
 export default function Home() {
   return (
     <main className="min-h-dvh">
-      <section className="min-h-[80svh] grid place-items-center px-6 pb-24 pt-12 text-white md:pb-32">
+      <section className="min-h-[80svh] grid place-items-center px-6 pb-24 pt-12 text-white md:px-8 md:pb-32">
         <div className="w-full max-w-3xl space-y-4 text-left">
           <h1 className="text-3xl font-medium text-white sm:text-4xl">
             Get <span className="inline-flex text-white"><ScrollNeonText text="Loud." /></span>
@@ -32,6 +32,9 @@ export default function Home() {
             <h2 className="text-3xl font-semibold text-[#1C1D1B] drop-shadow-[0_8px_24px_rgba(0,0,0,0.7)] sm:text-4xl">
               All the tools you need to grow louder.
             </h2>
+            <p className="max-w-2xl text-base text-[#2A2B28] sm:text-lg">
+              Strategy, storytelling, and automation built for teams that want momentum without the extra headcount.
+            </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2">

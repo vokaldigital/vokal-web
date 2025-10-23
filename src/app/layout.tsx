@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
   title: "Vokal Digital",
@@ -18,10 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-dvh bg-[url('/mobile-background.jpg?v=1')] md:bg-[url('/website-background.jpg?v=1')] bg-[length:clamp(768px,100vw,100vw)_auto] bg-top bg-no-repeat text-gray-900 antialiased">
-        <Nav />
-        <div className="pt-20">{children}</div>
-        <Footer />
+      <body className="min-h-dvh antialiased">
+        <PageShell>
+          <Nav />
+          <div className="pt-20">{children}</div>
+          <Footer />
+        </PageShell>
       </body>
     </html>
   );

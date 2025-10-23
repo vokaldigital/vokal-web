@@ -141,7 +141,7 @@ export default function Nav() {
                   <Link
                     href="/get-started"
                     onClick={closeMenu}
-                    className="inline-flex w-fit items-center justify-center rounded-2xl border border-transparent bg-[#B4FF00]/90 px-4 py-2 text-sm font-medium text-[#1C1D1B]/80 backdrop-blur-[5px] transition-all hover:border-[#B4FF00] hover:bg-[#B4FF00]/20 hover:text-[#B4FF00] hover:backdrop-blur-[14px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60"
+                    className="inline-flex min-w-[160px] justify-center rounded-2xl border border-transparent bg-[#B4FF00]/90 px-6 py-2 text-[#1C1D1B]/80 backdrop-blur-[5px] transition-all hover:border-[#B4FF00] hover:bg-[#B4FF00]/20 hover:text-[#B4FF00] hover:backdrop-blur-[14px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60"
                   >
                     Get started
                   </Link>
