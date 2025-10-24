@@ -7,20 +7,22 @@ import { FAQCard } from "@/components/FAQCard";
 export default function Home() {
   return (
     <main className="min-h-dvh">
-      <section className="min-h-[85svh] grid place-items-center px-6 pb-24 pt-16 text-white md:px-8 md:pb-36">
-        <div className="w-full max-w-4xl space-y-6 text-left">
-          <h1 className="text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
-            Get <span className="inline-flex text-white"><ScrollNeonText text="Loud." /></span>
-          </h1>
-          <p className="text-lg text-white/80 sm:text-xl md:text-2xl">
-            Your brand. Amplified by AI.
-          </p>
-          <Link
-            href="/get-started"
-            className="inline-flex w-fit items-center justify-center rounded-2xl border border-transparent bg-[#B4FF00]/90 px-4 py-2 text-sm font-medium text-[#1C1D1B]/80 backdrop-blur-[5px] transition-all hover:border-[#B4FF00] hover:bg-[#B4FF00]/20 hover:text-[#B4FF00] hover:backdrop-blur-[14px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60"
-          >
-            Get started
-          </Link>
+      <section className="relative flex min-h-[80svh] items-center px-6 pb-24 pt-14 text-white md:px-8 md:pb-32">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 text-left">
+          <div className="max-w-4xl space-y-4">
+            <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
+              Get <span className="inline-flex text-white"><ScrollNeonText text="Loud." /></span>
+            </h1>
+            <p className="text-base text-white/80 sm:text-lg">
+              Your brand. Amplified by AI.
+            </p>
+            <Link
+              href="/get-started"
+              className="inline-flex w-fit items-center justify-center rounded-2xl border border-transparent bg-[#B4FF00]/90 px-4 py-2 text-sm font-medium text-[#1C1D1B]/80 backdrop-blur-[5px] transition-all hover:border-[#B4FF00] hover:bg-[#B4FF00]/20 hover:text-[#B4FF00] hover:backdrop-blur-[14px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60"
+            >
+              Get started
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -32,7 +34,7 @@ export default function Home() {
               Services we deliver
             </span>
             <h2 className="text-3xl font-semibold text-[#1C1D1B] sm:text-4xl">
-              All the tools you need to grow louder.
+              All the tools you need to be heard.
             </h2>
             <p className="max-w-2xl text-base text-[#2A2B28] sm:text-lg">
               Strategy, storytelling, and automation built for teams that want momentum without the extra headcount.
