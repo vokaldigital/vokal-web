@@ -7,12 +7,14 @@ import { FAQCard } from "@/components/FAQCard";
 export default function Home() {
   return (
     <main className="min-h-dvh">
-      <section className="min-h-[80svh] grid place-items-center px-6 pb-24 pt-12 text-white md:px-8 md:pb-32">
-        <div className="w-full max-w-3xl space-y-4 text-left">
-          <h1 className="text-3xl font-medium text-white sm:text-4xl">
+      <section className="min-h-[85svh] grid place-items-center px-6 pb-24 pt-16 text-white md:px-8 md:pb-36">
+        <div className="w-full max-w-4xl space-y-6 text-left">
+          <h1 className="text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
             Get <span className="inline-flex text-white"><ScrollNeonText text="Loud." /></span>
           </h1>
-          <p className="text-white/80">Your brand. Amplified by AI.</p>
+          <p className="text-lg text-white/80 sm:text-xl md:text-2xl">
+            Your brand. Amplified by AI.
+          </p>
           <Link
             href="/get-started"
             className="inline-flex w-fit items-center justify-center rounded-2xl border border-transparent bg-[#B4FF00]/90 px-4 py-2 text-sm font-medium text-[#1C1D1B]/80 backdrop-blur-[5px] transition-all hover:border-[#B4FF00] hover:bg-[#B4FF00]/20 hover:text-[#B4FF00] hover:backdrop-blur-[14px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B4FF00]/60"
@@ -29,7 +31,7 @@ export default function Home() {
             <span className="inline-flex items-center justify-center rounded-2xl border border-[#1C1D1B]/40 px-4 py-2 text-xs font-medium uppercase tracking-wide text-[#1C1D1B]/80 backdrop-blur-sm">
               Services we deliver
             </span>
-            <h2 className="text-3xl font-semibold text-[#1C1D1B] drop-shadow-[0_8px_24px_rgba(0,0,0,0.7)] sm:text-4xl">
+            <h2 className="text-3xl font-semibold text-[#1C1D1B] sm:text-4xl">
               All the tools you need to grow louder.
             </h2>
             <p className="max-w-2xl text-base text-[#2A2B28] sm:text-lg">
