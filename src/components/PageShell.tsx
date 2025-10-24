@@ -11,6 +11,7 @@ const aboutBackground = "bg-[url('/about-background.jpg?v=1')] bg-[length:100%_a
 const backgroundByPath: Record<string, string> = {
   "/about": aboutBackground,
   "/services": aboutBackground,
+  "/approach": aboutBackground,
   "/get-started": aboutBackground,
 };
 
